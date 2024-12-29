@@ -1,0 +1,2120 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Звіти з Лабораторних робіт</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      border-bottom: 2px solid #ddd;
+    }
+
+    .header-info {
+      max-width: 70%;
+    }
+
+    .header img {
+      max-width: 120px;
+      border-radius: 50%;
+      border: 2px solid #000;
+    }
+
+    .photo-caption {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+    <div class="header">
+      <div class="header-info">
+        <h1>Звіти з лабораторних робіт</h1>
+        <h2>з дисципліни "ПРОЕКТУВАННЯ WEB-ЗАСТОСУВАНЬ"</h2>
+        <p>Студент групи ЗПІ-зп41 Матросов Дмитро Вадимович</p>
+      </div>
+      <div class="student-photo">
+        <img src="Dmytro.jpg" alt="Фото студента">
+        <p class="photo-caption">Фото студента</p>
+      </div>
+    </div>
+
+  <div class="nav-tabs">
+    <button onclick="showContent(1)">Лабораторна робота 1.1</button>
+    <button onclick="showContent(2)">Лабораторна робота 1.2</button>
+    <button onclick="showContent(3)">Лабораторна робота 2.1</button>
+    <button onclick="showContent(4)">Лабораторна робота 2.2</button>
+    <button onclick="showContent(5)">Лабораторна робота 3.1</button>
+    <button onclick="showContent(6)">Лабораторна робота 3.2</button>
+    <button onclick="showContent(7)">Лабораторна робота 4.1</button>
+    <button onclick="showContent(8)">Лабораторна робота 4.2</button>
+  </div>
+
+  <div class="content">
+    <div class="sidebar">
+      <button id="sidebarButtonDescription" onclick="showText('Опис предметного середовища')">Опис предметного
+        середовища</button>
+      <button id="sidebarButton" onclick="showText('Тема, мета ЛР , місце розташування сайту, звіту')">Тема,
+        мета ЛР-1.1, місце розташування сайту, звіту</button>
+      <button id="sidebarButtonStructure" onclick="showText('СТРУКТУРА ДОКУМЕНТА')">СТРУКТУРА ДОКУМЕНТА</button>
+      <button id="sidebarButtonHTMLCodeTables" onclick="showText('HTML-код таблиць')">HTML-код таблиць</button>
+      <button id="sidebarButtonHTMLCodeForm" onclick="showText('HTML-код форми')">HTML-код форми</button>
+      <button id="sidebarButtonHTMLCodePict" onclick="showText('HTML-код зображення')">HTML-код
+        зображення</button>
+      <button id="sidebarButtonConclusion" onclick="showText('Висновки до ЛР 1.1')">Висновки до ЛР </button>
+    </div>
+
+    <div class="main-content">
+      <h3>Тема: СТРУКТУРА HTML-ДОКУМЕНТА. ВИБІР ПРЕДМЕТНОЇ ГАЛУЗІ</h3>
+      <p>Придбати практичні навички роботи з HTML-документом</p>
+      <p>Місце розташування сайту: <a href="https://kazzz7.github.io/zpi-zp41_appWEB-MatrosovDmytro-MEU-2025/">посилання</a>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function showContent(labNumber) {
+      const content = document.querySelector('.main-content');
+      const sidebarButton = document.getElementById('sidebarButton');
+      switch (labNumber) {
+        case 1:
+          content.innerHTML = `
+                        <h3>Лабораторна робота 1.1</h3>
+                         
+                        <p>Місце розташування сайту: <a href="https://kazzz7.github.io/zpi-zp41_appWEB-MatrosovDmytro-MEU-2025/">Посилання на веб -застосунок</a></p>`;
+          sidebarButtonHTMLCodeTables.onclick = function () {
+            const htmlCode = `
+<h2>Наші хіти продажу</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Продукт</th>
+        <th>Ціна</th>
+        <th>Опис</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Лосось</td>
+        <td>700 грн/кг</td>
+        <td>Багатий на Омега-3, ідеально підходить для грилю.</td>
+      </tr>
+      <tr>
+        <td>Тунець</td>
+        <td>800 грн/кг</td>
+        <td>Високоякісний тунець для суші або стейків.</td>
+      </tr>
+      <tr>
+        <td>Мойва</td>
+        <td>150 грн/кг</td>
+        <td>Ніжний смак, ідеально підходить для смаження або запікання.</td>
+      </tr>
+    </tbody>
+  </table>`;
+
+            // Экранирование тегов для отображения как текста
+            const escapedHTML = htmlCode
+              .replace(/</g, "&lt;")
+              .replace(/>/g, "&gt;")
+              .replace(/\n/g, "<br>"); // Добавляем переносы строк
+
+            showText(escapedHTML); // Отображаем результат
+          };
+          sidebarButtonHTMLCodePict.onclick = function () {
+            const cssCode = `
+  <img src="images/001" alt="Свіжий лосось" style="width: 100%; max-width: 500px;">
+`;
+
+            // Экранирование для отображения как текста
+            const escapedCSS = cssCode.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\n/g, "<br>");
+
+            showText('<b>HTML-код</b><br>' + escapedCSS); // Отображаем экранированный CSS
+          };
+
+          sidebarButtonHTMLCodeForm.onclick = function () {
+            const htmlCode = `
+ <h2>Зв'яжіться з нами</h2>
+  <form action="/submit" method="POST">
+    <label for="name">Ім'я:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Електронна пошта:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">Повідомлення:</label>
+    <textarea id="message" name="message" required></textarea>
+
+    <button type="submit">Надіслати</button>
+  </form>`;
+
+            // Экранирование тегов для отображения как текста
+            const escapedHTML = htmlCode
+              .replace(/</g, "&lt;")
+              .replace(/>/g, "&gt;")
+              .replace(/\n/g, "<br>"); // Добавляем переносы строк
+
+            showText(escapedHTML); // Отображаем результат
+          };
+
+          sidebarButtonDescription.onclick = function () { showText('<b> Опис предметного середовища.</b><br> Предметна галузь: Створення веб-сайту для продажу замороженої риби з функцією оптово-роздрібної торгівлі.') };
+          sidebarButtonStructure.onclick = function () { showText('<b>Структура файлів цього проєкту на GitHub виглядає наступним чином:</b><br><p><b>images (Папка):</b>Каталог, містить зображення, які використовуються у веб-додатку, такі як логотипи, іконки або інші медіа-файли <br><b>index.html (Файл):</b>Основний HTML-файл веб-додатку,  це вхідна точка додатку. Містить структуру веб-сторінки<br><b>styles.css (Файл):</b> CSS-файл, що відповідає за стилізацію HTML-елементів в index.html. Він визначає вигляд веб-сторінки.</p>') };
+          sidebarButtonDescription.onclick = function () {
+            showText('<b>Опис предметного середовища.</b><br>Предметна галузь: Створення веб-сайту для продажу замороженої риби з функцією оптово-роздрібної торгівлі.<br><p><b>Тема:</b> Створення веб-сайту для компанії оптово-роздрібної торгівлі "Клуб Лосося"</p><br><b>Сценарій використання сайту:</b><br>Користувачі переглядають каталог продукції.<br>Замовлення додаються в кошик і оформлюються через форму.<br>Система обчислює знижки для оптових замовлень.<br>Після оплати замовлення користувач отримує підтвердження:');
+          };
+
+          sidebarButtonConclusion.onclick = function () { 
+    showText(
+        '<b>Висновки до ЛР 1.1</b><br>' +
+        '<p>В ході виконання лабораторної роботи було отримано практичні навички роботи з HTML-документом, які включають структурування сторінки, створення таблиць, списків, інтеграцію зображень і посилань. Було розроблено шаблон звітного HTML-документу, який стане основою для представлення результатів роботи всіх лабораторних робіт.</p>' +
+        '<p>Результатом стало створення структурованої веб-сторінки, яка відповідає сучасним вимогам до оформлення та взаємодії користувача з контентом. Основний акцент був зроблений на застосуванні таких елементів HTML, як таблиці для представлення табличних даних, списки для організації тексту, а також посилання для забезпечення навігації між сторінками.</p>' +
+        '<p>Даний підхід дозволив зрозуміти важливість чіткої організації HTML-коду, а також забезпечення його читабельності та масштабованості. Успішно створений шаблон HTML-документу стане базою для відображення інформації та звітів, спрощуючи процес роботи над наступними лабораторними роботами.</p>'
+    );
+};
+          sidebarButton.innerText = 'Тема, мета ЛР 1.1, місце розташування сайту, звіту';
+          sidebarButton.onclick = function () { 
+    showText(
+        '<b>Тема:</b> Структура html-документа. Вибір предметної галузі. Робота з посиланнями, таблицями, зображеннями, списками в html-документі.<br>' +
+        '<p><b>Мета:</b> Придбати практичні навички роботи з HTML-документом, таблицями, зображеннями, посиланнями, списками, формами. Створити шаблон звітного HTML-документа для відображення результатів роботи всіх лабораторних робіт.</p><br>' +
+        '<b>Посилання:</b><br>' +
+        '<ul>' +
+        '<li><b>Репозиторій власного WEB-застосунку:</b> ' +
+        '<a href="https://github.com/kazzz7/zpi-zp41_appWEB-MatrosovDmytro-MEU-2025.git" target="_blank">Репозиторій WEB-застосунку</a></li>' +
+        '<li><b>Жива сторінка власного WEB-застосунку:</b> ' +
+        '<a href="https://kazzz7.github.io/zpi-zp41_appWEB-MatrosovDmytro-MEU-2025/" target="_blank">WEB-застосунок</a></li>' +
+        '<li><b>Репозиторій звітного HTML-документа:</b> ' +
+        '<a href="https://github.com/kazzz7/zpi-zp41_appRECORD-MatrosovDmytro-MEU-2025.git" target="_blank">Репозиторій звітного HTML-документа</a></li>' +
+        '<li><b>Жива сторінка звітного HTML-документа:</b> ' +
+        '<a href="https://kazzz7.github.io/zpi-zp41_appRECORD-MatrosovDmytro-MEU-2025/" target="_blank">Звітний HTML-документ</a></li>' +
+        '</ul>'
+    );
+};
+
+          break;
+        case 2:
+          content.innerHTML = `
+                        <h3>Лабораторна робота 1.2</h3>
+                         
+                        <p>Місце розташування сайту: <a href="https://niamey.github.io/Zpi-zp41_appWEB_KornievaOlga/">Посилання на веб -застосунок</a></p> `;
+          sidebarButtonHTMLCodePict.style.display = "none";
+          sidebarButtonConclusion.innerText = 'Висновки до ЛР-1.2';
+          sidebarButtonConclusion.onclick = function () {
+            showText('<b>Висновки по роботі №1.2: Каскадні таблиці стилів. Селектори. Ідентифікатори. Стильове оформлення текстових елементів в HTML-документах</b><br><b><p> Переваги використання каскадних таблиць стилів (CSS):</p></b><br>1. <b>Модульність та організованість:</b> CSS дозволяє створювати зручні та структуровані стилі для різних елементів, що спрощує редагування та підтримку зовнішнього вигляду веб-сторінки.<br>2. <b>Гнучкість:</b> Можливість застосовувати різні стилі до елементів за допомогою тегів, класів та ідентифікаторів дає велику гнучкість у дизайні.<br>3. <b>Адаптивність:</b> Каскадні таблиці стилів дозволяють легко налаштовувати відображення веб-сторінок на різних пристроях, завдяки використанню медіа-запитів.<br>4. <b>Швидкість завантаження сторінок:</b> Оскільки стильові файли зберігаються окремо від HTML-коду, це зменшує розмір документа та прискорює його завантаження.<br><b><p>Недоліки використання каскадних таблиць стилів:</p></b><br>1. <b>Перекриття стилів:</b> Каскадні властивості інколи можуть призводити до небажаних перекриттів, коли один стиль перекриває інший. Це може спричиняти труднощі в управлінні стилями, особливо в великих проєктах.<br>2. <b>Невідповідність між браузерами:</b> Існує ймовірність того, що стилі можуть виглядати по-різному в різних браузерах, якщо вони не підтримують певні CSS-властивості або мають різні інтерпретації стандартів.<br>3. <b>Використання вбудованих стилів:</b> Надмірне використання вбудованих стилів у HTML-коді замість зовнішніх CSS-файлів може ускладнити підтримку сайту.<br><b>Переваги використання селекторів та ідентифікаторів:</b><br>1. <b>Точність та специфічність:</b> Селектори тегів, класів та ідентифікаторів дозволяють точно вказати елементи, до яких слід застосувати стиль, що зменшує ймовірність помилок у дизайні.<br>2. <b>Гнучкість у стилізації:</b> Використання різних типів селекторів (теги, класи, ідентифікатори) дає можливість ефективно стилізувати як окремі елементи, так і групи елементів.<br>3. <b>Підтримка багаторазового використання стилів:</b> Класи та ідентифікатори дозволяють використовувати один і той самий стиль для кількох елементів або створювати унікальні стилі для конкретних елементів на сторінці.<br><b>Недоліки використання селекторів та ідентифікаторів:</b><br>1. <b>Конфлікти селекторів:</b> Іноді застосування кількох селекторів до одного елемента може призвести до конфліктів або неочікуваних результатів, особливо якщо не враховуються специфічність та каскадність стилів.<br>2. <b>Важливість правильного структурного підходу:</b> Для ефективного використання селекторів необхідно правильно структурувати HTML-код і CSS, що може бути складним в умовах великого проєкту.<br><b>Оформлення текстових елементів в HTML-документах:</b><br>1. <b>Шрифти та контури:</b> Використання шрифтів через Google Fonts дозволяє створювати привабливий дизайн, а контури тексту допомагають виділити важливі елементи на сторінці.<br>2. <b>Фон та колір тексту:</b> Оформлення фону та кольору тексту допомагає зробити інтерфейс більш привабливим і зручним для користувачів.<br>3. <b>Таблиці та списки:</b> Стильове оформлення таблиць і списків дозволяє забезпечити зручність користування та полегшує сприйняття інформації.<br><b>Загальні висновки:</b><br>1. Використання CSS для оформлення веб-документів значно підвищує їхню естетичність, зручність і адаптивність.<br>2. Робота з селекторами дозволяє значно спростити керування стилями та дає можливість створювати гнучкі та масштабовані дизайни.<br>3. Застосування правильних технік стилізації тексту, таблиць та списків допомагає створити не тільки привабливий, але й функціональний веб-сайт.');
+          };
+
+
+          sidebarButton.onclick = function () { showText('<b>Тема:</b> каскадні таблиці стилів. селектори. ідентифікатори. стильове оформлення текстових елементів в html-документах.<br><b> Мета:</b>Придбати практичні навички роботи з селекторами тегів, класів, ідентифікаторів; списками, властивостями кольору і фону, оформленням текстових елементів <br> <b>Посилання на сайт: </b> <a href="https://niamey.github.io/Zpi-zp41_appWEB_KornievaOlga/">Посилання на веб-застосунок</a> <br> <b>Посилання на звіт: </b> <a href="https://niamey.github.io/Zpi-zp41_appRECORD_KornievaOlga/">Посилання на звіт </a>') };
+          sidebarButtonDescription.onclick = function () {
+            showText('<b>Опис предметного середовища.</b><br>Предметна галузь: Інтернет-платформа для ІТ-компанії "AI-partnerio".<br><p><b>Тема:</b> Створення веб-сайту для ІТ-компанії "AI-partnerio"</p><br><b>Сценарій використання сайту:</b><br>Ознайомлення з рішеннями та послугами: Користувач заходить на сайт і переглядає каталог послуг, які надає компанія.<br>Розробка систем машинного навчання.<br>Реєстрація та заповнення профілю: Користувач може створити обліковий запис, зазначити свої потреби , а також заповнити профіль для отримання персоналізованих рекомендацій.<br>Оформлення замовлення послуг<br>Отримання рекомендацій і пропозицій:');
+          };
+          sidebarButtonStructure.innerText = 'СПОСОБИ ПІДКЛЮЧЕННЯ СТИЛІВ із прикладами';
+          sidebarButton.innerText = 'Тема, мета ЛР-1.2, місце розташування сайту, звіту';
+          sidebarButtonHTMLCodeTables.innerText = 'Селектори';
+          sidebarButtonHTMLCodeForm.innerText = 'Самостійна робота №2';
+          // Добавим функцию для отображения текста
+          function showText(text) {
+            const content = document.querySelector('.main-content');
+            content.innerHTML = text;
+          }
+          sidebarButtonStructure.onclick = function () {
+            const htmlCode = `
+    Тема: Способи підключення стилів в HTML.
+
+    Існує три основні способи підключення стилів:
+
+    1. **Inline styles** – стилі додаються безпосередньо в атрибути тегів HTML.
+       Приклад:
+       <p style="color: red; font-size: 16px;">Це приклад тексту зі стилями</p>
+
+       У моєму проєкті це могло б виглядати так:
+       <button style="background-color: lightblue; border: none;">Кнопка</button>
+
+    2. **Internal styles** – стилі пишуться у блоці <style> всередині HTML-документу.
+       Приклад:
+       <style>
+         p {
+           color: blue;
+           font-size: 18px;
+         }
+       </style>
+       <p>Це текст із застосованими внутрішніми стилями.</p>
+
+       У вашому випадку можна додати стилі таким чином:
+       <style>
+         button {
+           background-color: lightblue;
+           border-radius: 5px;
+           font-size: 14px;
+         }
+       </style>
+
+    3. **External styles** – стилі зберігаються у зовнішньому CSS-файлі, який підключається до HTML-документа.
+       Приклад:
+       <link rel="stylesheet" href="styles.css">
+
+       У файлі styles.css це може виглядати так:
+       button {
+         background-color: lightblue;
+         border: 1px solid #ccc;
+         padding: 10px 15px;
+         cursor: pointer;
+       }
+
+       У HTML:
+       <button class="custom-button">Зовнішній стиль</button>
+
+    Як у мене в кінці реалізовано:
+    В документі використовується зовнішнє підключення стилів через тег <link>, наприклад:
+    <link rel="stylesheet" href="styles.css">.
+
+    Окрім цього, для створення стилів додані медіазапити для адаптивності:
+    @media (max-width: 768px) {
+      header nav ul {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+    Вони дозволяють підлаштовувати вигляд сторінки під різні розміри екранів.
+  `;
+
+            // Екранірування тегів для коректного відображення в браузері
+            const escapedHTML = htmlCode
+              .replace(/</g, "&lt;")
+              .replace(/>/g, "&gt;")
+              .replace(/\n/g, "<br>");
+
+            // Вивід тексту
+            showText(escapedHTML);
+          };
+
+
+          sidebarButtonHTMLCodeTables.onclick = function () {
+            const newButtonsContainerId = 'newButtonsContainer';
+            const newButtonsContainer = document.getElementById(newButtonsContainerId);
+
+            if (newButtonsContainer) {
+              // Если контейнер с кнопками уже существует, удаляем его
+              newButtonsContainer.remove();
+            } else {
+              // Создаем контейнер для новых кнопок
+              const newButtonsContainer = document.createElement('div');
+              newButtonsContainer.id = newButtonsContainerId;
+              newButtonsContainer.innerHTML = `
+            <button id="newButton1" class="sidebar-button">Селектор тегу</button>
+            <button id="newButton2" class="sidebar-button">Селектор класу</button>
+            <button id="newButton3" class="sidebar-button">Селектор ідентифікатор</button>
+            <button id="newButton4" class="sidebar-button">Інші селектори</button>
+        `;
+
+              // Найдем элемент кнопки "Самостійна робота №2"
+              const sidebarButtonHTMLCodeTablesElement = document.getElementById('sidebarButtonHTMLCodeTables');
+
+              // Вставим новые кнопки после кнопки "Самостійна робота №2"
+              sidebarButtonHTMLCodeTablesElement.insertAdjacentElement('afterend', newButtonsContainer);
+
+              // Добавим обработчики для новых кнопок
+              document.getElementById('newButton1').onclick = function () {
+                const selectors = [
+                  'body',
+                  'html',
+                  'header',
+                  'header nav ul',
+                  'header nav ul li a',
+                  '.hero',
+                  '.services',
+                  '.service',
+                  '.service a',
+                  '.ul',
+                  '.table-section table',
+                  '.table-section th',
+                  '.table-section td',
+                  '.contact-form form',
+                  '.contact-form input',
+                  '.contact-form textarea',
+                  '.contact-form button',
+                  '#footer',
+                  '#main-header'
+                ];
+                showText('<b>Селектори тегів:</b><br>' + selectors.join('<br>'));
+              };
+
+              document.getElementById('newButton2').onclick = function () {
+                const selectors = [
+                  '.hero',
+                  '.services',
+                  '.service',
+                  '.ul',
+                  '.table-section',
+                  '.table-section th',
+                  '.table-section td',
+                  '.contact-form',
+                  '.contact-form form',
+                  '.contact-form input',
+                  '.contact-form textarea',
+                  '.contact-form button'
+                ];
+                showText('<b>Селектори класів:</b><br>' + selectors.join('<br>'));
+              };
+              document.getElementById('newButton3').onclick = function () {
+                showText('<b>Селекори ідентифікатори: </b><br> #footer, #main-header3');
+              };
+              document.getElementById('newButton4').onclick = function () {
+                showText(' <b> Універсальний селектор  : </b><br>* { box-sizing: border-box;  } <br><b> Дочірній селектор:</b><br> header > nav { margin-top: 10px;  }<br><b> Сусідній селектор:</b><br> header nav ul li + li { margin-left: 10px;  }');
+              };
+            }
+          };
+          sidebarButtonHTMLCodeForm.onclick = function () {
+            const newButtonsContainerId = 'newButtonsContainer';
+            const newButtonsContainer = document.getElementById(newButtonsContainerId);
+
+            if (newButtonsContainer) {
+              // Если контейнер с кнопками уже существует, удаляем его
+              newButtonsContainer.remove();
+            } else {
+              // Создаем контейнер для новых кнопок
+              const newButtonsContainer = document.createElement('div');
+              newButtonsContainer.id = newButtonsContainerId;
+              newButtonsContainer.innerHTML = `
+            <button id="newButton4" class="sidebar-button"> Шрифт. Google fonts</button>
+            <button id="newButton5" class="sidebar-button">Css таблиці. Фон. Списки </button>
+            <button id="newButton6" class="sidebar-button">Css просунутий</button>
+ 
+        `;
+
+              const sidebarButtonHTMLCodeTablesElement = document.getElementById('sidebarButtonHTMLCodeForm');
+
+              sidebarButtonHTMLCodeTablesElement.insertAdjacentElement('afterend', newButtonsContainer);
+
+              document.getElementById('newButton4').onclick = function () {
+                const cssCode = `
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: url('images/robot.jpg') no-repeat center center fixed;
+  background-size: cover;
+}`;
+
+                // Экранирование для отображения как текста
+                const escapedCSS = cssCode.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\n/g, "<br>");
+
+                showText(
+                  '<b>html file:</b><br>' +
+                  '&lt;link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"&gt;<br>' +
+                  '<b>styles.css:</b> <br>' +
+                  escapedCSS
+                );
+              };
+
+
+              document.getElementById('newButton5').onclick = function () {
+                const selectors = {
+                  'Таблиці': [
+                    '.table-section',
+                    '.table-section th',
+                    '.table-section td'
+                  ],
+                  'Списки': [
+                    'header nav ul',
+                    'left-menu ul',
+                    'left-menu ul li',
+                    'additional-info ul',
+                    'additional-info ol'
+                  ],
+                  'Фон': [
+                    'body',
+                    '.hero',
+                    '.service',
+                    '.additional-info',
+                    '.table-section',
+                    '#footer'
+                  ]
+                };
+
+                let result = '<b>Селектори:</b><br>';
+                for (const category in selectors) {
+                  result += `<b>${category}:</b><br>${selectors[category].join('<br>')}<br><br>`;
+                }
+
+                result += '<b>CSS-код:</b><br><pre><code>' +
+                  `/* Стили для таблиц */
+.table-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table-section th, .table-section td {
+  padding: 8px;
+  text-align: left;
+}
+.table-section th {
+  background: rgba(0, 0, 0, 0.6);
+}
+.table-section tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* Стили для списков */
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+left-menu ul {
+  list-style: none;
+  padding: 0;
+}
+left-menu ul li {
+  margin-bottom: 20px;
+}
+additional-info ul,
+additional-info ol {
+  padding-left: 20px;
+}
+
+/* Стили для фона */
+body {
+  background: url('images/robot.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Roboto', sans-serif;
+}
+.hero {
+  background: rgba(0, 0, 0, 0.6);
+}
+.service {
+  background: rgba(0, 0, 0, 0.5);
+}
+.additional-info,
+.table-section {
+  background: rgba(0, 0, 0, 0.6);
+}
+#footer {
+  background: rgba(0, 0, 0, 0.6);
+}` + '</code></pre>';
+
+                showText(result);
+              };
+
+
+
+              document.getElementById('newButton6').onclick = function () {
+                const cssCode = `
+/* Анімація появи */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Стилі для анімації та закруглення кутів */
+.fade-in {
+  animation: fadeIn 2s ease-in;
+  border-radius: 10px; /* Закруглення кутів */
+  padding: 10px; /* Додаємо відступи, щоб закруглені кути були видимі */
+  background: rgba(0, 0, 0, 0.1); /* Легкий фон для наочності закруглених кутів */
+}`;
+
+                // Екранування для відображення як тексту
+                const escapedCSS = cssCode.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\n/g, "<br>");
+
+                showText('<b>CSS-код:</b><br>' + escapedCSS); // Відображаємо екранований CSS
+              };
+
+
+            }
+            const htmlCodePictButton = document.getElementById('sidebarButtonHTMLCodePict');
+            htmlCodePictButton.style.display = 'none';
+            sidebarButton.innerText = 'Тема, мета ЛР-1.2 , місце розташування сайту, звіту';
+          };
+          break;
+        case 3:
+          content.innerHTML = `
+                        <h3>Лабораторна робота  </h3>
+                        
+                        <p>Місце розташування сайту: <a href="https://niamey.github.io/Zpi-zp41_appWEB_KornievaOlga/">Посилання на веб -застосунок</a></p> `;
+          sidebarButtonConclusion.innerText = 'Висновки до ЛР 2-1';
+          sidebarButtonConclusion.onclick = function () {
+            showText('<b>Висновки до ЛР-2.1:</b><br><b>Переваги створення веб-додатків за допомогою таблиць:</b><br>1. Легкість у створенні структурованих даних, особливо при роботі з великими обсягами інформації.<br>2. Простота в організації та поданні даних, що зручно для відображення великих масивів інформації.<br>3. Легко підтримувати та редагувати таблиці через CSS або JavaScript.<br><b>Недоліки:</b><br>1. Труднощі з адаптацією до різних пристроїв (не завжди зручні на малих екранах).<br>2. Може бути важко організувати комплексні взаємодії або динамічні елементи в таблицях.<br><b>Переваги створення веб-додатків за допомогою блоків:</b><br>1. Гнучкість у побудові інтерфейсу, можливість створення адаптивних та привабливих дизайнів.<br>2. Блоки дозволяють легше управляти вмістом на сторінці за допомогою позиціонування та зручного управління через CSS.<br>3. Можна реалізувати плавні анімації та ефекти з використанням плаваючих блоків.<br><b>Недоліки:</b><br>1. При неправильному використанні блоки можуть призвести до проблем з макетом і сумісністю з різними браузерами.<br>2. Може бути складно для реалізації складних таблиць або списків з використанням тільки блоків.');
+          };
+          sidebarButton.onclick = function () {
+            showText('<b>Тема:</b> ВЕРСТКА HTML-ДОКУМЕНТУ. БЛОКОВА ВЕРСТКА. ВЕРСТКА ЗАСОБАМИ CSS та FLEXBOX.<br><p><b>Мета:</b><br>⎯ придбати практичні навички роботи верстки сторінок засобами CSS, верстки на основі плаваючих елементів, з’ясувати переваги та недоліки типів макетів веб-сторінок.<br>⎯ придбати практичні навички роботи верстки сторінок засобами CSS та FLEXBOX.</p> <br> <b>Посилання на сайт: </b> <a href="https://niamey.github.io/Zpi-zp41_appWEB_KornievaOlga/">Посилання на веб-застосунок</a> <br> <b>Посилання на звіт: </b> <a href="https://niamey.github.io/Zpi-zp41_appRECORD_KornievaOlga/">Посилання на звіт </a>');
+          };
+
+          sidebarButtonDescription.onclick = function () {
+            showText('<b>Опис предметного середовища.</b><br>Предметна галузь: Інтернет-платформа для ІТ-компанії "AI-partnerio".<br><p><b>Тема:</b> Створення веб-сайту для ІТ-компанії "AI-partnerio"</p><br><b>Сценарій використання сайту:</b><br>Ознайомлення з рішеннями та послугами: Користувач заходить на сайт і переглядає каталог послуг, які надає компанія.<br>Розробка систем машинного навчання.<br>Реєстрація та заповнення профілю: Користувач може створити обліковий запис, зазначити свої потреби , а також заповнити профіль для отримання персоналізованих рекомендацій.<br>Оформлення замовлення послуг<br>Отримання рекомендацій і пропозицій:');
+          };
+          sidebarButton.innerText = 'Тема, мета ЛР 2-1 , місце розташування сайту, звіту';
+          sidebarButtonStructure.innerText = 'Завдання 1. Зовнішній вигляд макету. Код макету.';
+          sidebarButtonHTMLCodeTables.innerText = 'Завдання №2';
+          sidebarButtonHTMLCodeForm.innerText = 'Завдання №3 Flexbox';
+          sidebarButtonHTMLCodePict.style.display = "none";
+          sidebarButtonHTMLCodeTables.onclick = function () {
+            const newButtonsContainerId = 'newButtonsContainers';
+            const newButtonsContainer = document.getElementById(newButtonsContainerId);
+
+            if (newButtonsContainer) {
+              // If the container with buttons already exists, remove it
+              newButtonsContainer.remove();
+            } else {
+              // Create a new container for the buttons
+              const newButtonsContainer = document.createElement('div');
+              newButtonsContainer.id = newButtonsContainerId;
+              newButtonsContainer.innerHTML = `
+            <button id="newButton4" class="sidebar-button">  Гумова таблична верстка</button>
+            <button id="newButton5" class="sidebar-button">Гумова блокова верстка </button>     `;
+              const sidebarButtonHTMLCodeTablesElement = document.getElementById('sidebarButtonHTMLCodeTables');
+
+              sidebarButtonHTMLCodeTablesElement.insertAdjacentElement('afterend', newButtonsContainer);
+            }
+            // Когда кнопка с ID 'newButton5' нажата, выполняется этот код
+            document.getElementById('newButton5').onclick = function () {
+              content.innerHTML = `
+        <h3>Гумова блокова верстка</h3>  
+        <pre><code>
+            Секція Key Features (#features):  
+&lt;div style="display: flex; flex-wrap: wrap; justify-content: space-around;"&gt;
+    &lt;div style="flex: 1; padding: 10px;"&gt;Блок 1&lt;/div&gt;
+    &lt;div style="flex: 1; padding: 10px;"&gt;Блок 2&lt;/div&gt;
+    &lt;div style="flex: 1; padding: 10px;"&gt;Блок 3&lt;/div&gt;
+&lt;/div&gt;
+
+    
+        Секція Success Stories
+        
+         &lt;div class="stories-container"&gt;
+         &lt;div class="story"&gt;
+        &lt;/div&gt;
+         .stories-container {
+    display: flex;               
+    justify-content: space-between;  
+    gap: 20px;                 
+    flex-wrap: wrap;           
+  }
+ 
+  .story {
+    width: 30%;  
+    text-align: center;        
+    margin: 10px 0;            
+  }
+  
+   
+  .story video {
+    width: 100%;               
+    height: 400px;            
+  }     </code></pre>
+    `;
+            };
+            document.getElementById('newButton4').onclick = function () {
+              content.innerHTML = `<h3>Гумова таблична верстка</h3>  
+    <pre>
+    &lt;section id="flexible-table-section" style="background-color: #f9f9f9; padding: 40px;"&gt;
+        &lt;h2 style="text-align: center;"&gt;Flexible Table Layout&lt;/h2&gt;
+        &lt;div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;"&gt;
+            &lt;div style="text-align: center; padding: 20px; border: 1px solid #ccc; background-color: #fff;"&gt;
+                &lt;h3&gt;Block 1&lt;/h3&gt;
+                &lt;p&gt;Some content for Block 1. You can put any data here.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div style="text-align: center; padding: 20px; border: 1px solid #ccc; background-color: #fff;"&gt;
+                &lt;h3&gt;Block 2&lt;/h3&gt;
+                &lt;p&gt;Some content for Block 2. This block could include more complex data.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div style="text-align: center; padding: 20px; border: 1px solid #ccc; background-color: #fff;"&gt;
+                &lt;h3&gt;Block 3&lt;/h3&gt;
+                &lt;p&gt;Content for Block 3. Flexible and adaptable content area.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div style="text-align: center; padding: 20px; border: 1px solid #ccc; background-color: #fff;"&gt;
+                &lt;h3&gt;Block 4&lt;/h3&gt;
+                &lt;p&gt;Another block with different content.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div style="text-align: center; padding: 20px; border: 1px solid #ccc; background-color: #fff;"&gt;
+                &lt;h3&gt;Block 5&lt;/h3&gt;
+                &lt;p&gt;This is Block 5 with some additional information.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div style="text-align: center; padding: 20px; border: 1px solid #ccc; background-color: #fff;"&gt;
+                &lt;h3&gt;Block 6&lt;/h3&gt;
+                &lt;p&gt;Content for Block 6. It can be as simple or complex as needed.&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    </pre>`;
+            };
+          };
+          sidebarButtonHTMLCodeForm.onclick = function () {
+            const newButtonsContainerId = 'newButtonsContainers';
+            const newButtonsContainer = document.getElementById(newButtonsContainerId);
+
+            if (newButtonsContainer) {
+              // If the container with buttons already exists, remove it
+              newButtonsContainer.remove();
+            } else {
+              // Create a new container for the buttons
+              const newButtons1Container = document.createElement('div');
+              newButtons1Container.id = newButtonsContainerId;
+              newButtons1Container.innerHTML = `
+            <button id="newOlgasButton4" class="sidebar-button">  Скрішот  сторінки(FLEXBOX)</button>
+            <button id="newOlgasButton5" class="sidebar-button">HTML-код FLEXBOX </button>   
+            <button id="newButton6" class="sidebar-button">CSS-код FLEXBOX </button>    
+            `;
+              const sidebarButtonHTMLCodeTablesElement1 = document.getElementById('sidebarButtonHTMLCodeForm');
+
+              sidebarButtonHTMLCodeTablesElement1.insertAdjacentElement('afterend', newButtons1Container);
+            }
+            document.getElementById('newOlgasButton4').onclick = function () {
+
+              content.innerHTML = `  <img src= "images/maket-1.jpg" alt="Макет проекту" style="width:100%; max-width:800px;">
+           <img src= "images/maket-2.jpg" alt="Макет проекту" style="width:100%; max-width:800px;">
+        `;
+            };
+            document.getElementById('newButton6').onclick = function () {
+              content.innerHTML = ` Стилі проекту:
+<pre style="white-space: pre-wrap; font-family: monospace; line-height: 1.5;">
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+#main-header-2 {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 10px;
+}
+
+header > nav {
+    margin-top: 10px;
+}
+
+header nav ul li + li {
+    margin-left: 100px;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    margin-left: 200px;
+}
+
+.header .logo {
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-list {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.nav-list li a:hover {
+    color: #ffd700;
+}
+
+#footer-2 {
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+    width: 100%;
+}
+
+.video-container {
+    padding: 20px;
+}
+
+.stories-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.story {
+    width: 30%;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.story video {
+    width: 100%;
+    height: 400px;
+}
+
+#faq {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+}
+
+#faq h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.faq-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.faq-item {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    flex: 1 1 calc(33% - 40px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+}
+
+.faq-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.faq-item h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.faq-item p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-list li a {
+        font-size: 1rem;
+    }
+}
+</pre>
+    `;
+            };
+
+
+            document.getElementById('newOlgasButton5').onclick = function () {
+
+              content.innerHTML = `  <p> HTML код проекту:</p>
+           <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;AI Assistants Development&lt;/title&gt;
+  &lt;link rel="stylesheet" href="styles-ai-development-assiastance.css"&gt;
+  &lt;link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- Header --&gt;
+  &lt;header id="main-header-2"&gt;
+    &lt;nav&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#about-ai"&gt;About AI&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#projects"&gt;Projects&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#benefits"&gt;Benefits&lt;/a&gt;&lt;/li&gt;  
+        &lt;li&gt;&lt;a href="#faq"&gt;FAQ&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#contact"&gt;Ask Us&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;!-- Main Banner --&gt;
+  &lt;section id="banner" style="text-align: center; padding: 20px; background-color: #f4f4f4;"&gt;
+    &lt;h1&gt;AI Assistants Development&lt;/h1&gt;
+    &lt;p&gt;We provide intelligent, efficient, and scalable AI solutions for your business!&lt;/p&gt;
+    &lt;img src="images/ai-banner.jpeg" alt="AI Banner" style="max-width: 200%; height: auto;"&gt;
+  &lt;/section&gt;
+
+  &lt;!-- Key Features Section --&gt;
+  &lt;section id="features" style="background-color: #fff; padding: 40px;"&gt;
+    &lt;h2 style="text-align: center;"&gt;Why Choose AI Solutions?&lt;/h2&gt;
+    &lt;div style="display: flex; justify-content: space-around;"&gt;
+      &lt;div style="flex: 1; text-align: center; padding: 10px;"&gt;
+        &lt;h3&gt;Automation&lt;/h3&gt;
+        &lt;p&gt;Reduce repetitive tasks and improve productivity.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div style="flex: 1; text-align: center; padding: 10px;"&gt;
+        &lt;h3&gt;Personalization&lt;/h3&gt;
+        &lt;p&gt;Enhance user experience with tailored interactions.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div style="flex: 1; text-align: center; padding: 10px;"&gt;
+        &lt;h3&gt;Scalability&lt;/h3&gt;
+        &lt;p&gt;Adapt AI to suit growing business needs.&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;!-- Success Stories --&gt;
+  &lt;section id="success-stories"&gt;  
+    &lt;div class="video-container"&gt;
+      &lt;h2&gt;Success Stories&lt;/h2&gt;
+      &lt;div class="stories-container"&gt;
+        &lt;div class="story"&gt;
+          &lt;h3&gt;Project Alpha&lt;/h3&gt;
+          &lt;p&gt;Automated customer support for global enterprise.&lt;/p&gt;
+          &lt;video controls&gt;
+            &lt;source src="videos/video-1.mp4" type="video/mp4"&gt;
+            Your browser does not support the video tag.
+          &lt;/video&gt;
+        &lt;/div&gt;
+        &lt;div class="story"&gt;
+          &lt;h3&gt;Project Beta&lt;/h3&gt;
+          &lt;p&gt;Developed a predictive analytics tool for finance.&lt;/p&gt;
+          &lt;video controls&gt;
+            &lt;source src="videos/video-2.mp4" type="video/mp4"&gt;
+            Your browser does not support the video tag.
+          &lt;/video&gt;
+        &lt;/div&gt;
+        &lt;div class="story"&gt;
+          &lt;h3&gt;Project Gamma&lt;/h3&gt;
+          &lt;p&gt;Personalized recommendations for an e-commerce platform.&lt;/p&gt;
+          &lt;video controls&gt;
+            &lt;source src="videos/video-3.mp4" type="video/mp4"&gt;
+            Your browser does not support the video tag.
+          &lt;/video&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;!-- FAQ Section --&gt;
+  &lt;section id="faq"&gt;
+    &lt;h2&gt;Frequently Asked Questions&lt;/h2&gt;
+    &lt;div class="faq-container"&gt;
+      &lt;div class="faq-item"&gt;
+        &lt;img src="images/faq1.jpeg" alt="AI Automation"&gt;
+        &lt;h3&gt;What is AI automation?&lt;/h3&gt;
+        &lt;p&gt;AI automation refers to the use of artificial intelligence to streamline and automate repetitive tasks, saving time and resources.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="faq-item"&gt;
+        &lt;img src="images/faq2.jpeg" alt="Personalization in AI"&gt;
+        &lt;h3&gt;How does AI enhance personalization?&lt;/h3&gt;
+        &lt;p&gt;AI analyzes user data to deliver tailored experiences, improving customer satisfaction and engagement.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="faq-item"&gt;
+        &lt;img src="images/faq3.jpeg" alt="AI Scalability"&gt;
+        &lt;h3&gt;Is AI scalable for growing businesses?&lt;/h3&gt;
+        &lt;p&gt;Yes, AI solutions can scale efficiently to meet the growing needs of your business.&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;!-- Contact Us --&gt;
+  &lt;section id="contact" style="background-color: #f4f4f4; padding: 40px; text-align: center;"&gt;
+    &lt;h2&gt;Contact Us&lt;/h2&gt;
+    &lt;form action="/submit" method="POST" style="display: inline-block; text-align: left;"&gt;
+      &lt;label for="name"&gt;Name:&lt;/label&gt;&lt;br&gt;
+      &lt;input type="text" id="name" name="name" required&gt;&lt;br&gt;&lt;br&gt;
+      &lt;label for="email"&gt;Email:&lt;/label&gt;&lt;br&gt;
+      &lt;input type="email" id="email" name="email" required&gt;&lt;br&gt;&lt;br&gt;
+      &lt;label for="message"&gt;Message:&lt;/label&gt;&lt;br&gt;
+      &lt;textarea id="message" name="message" rows="4" required&gt;&lt;/textarea&gt;&lt;br&gt;&lt;br&gt;
+      &lt;button type="submit"&gt;Send&lt;/button&gt;
+    &lt;/form&gt;
+  &lt;/section&gt;
+
+  &lt;footer id="footer-2"&gt;
+    &lt;p&gt;&amp;copy; 2024 AI Partnerio. All rights reserved.&lt;/p
+    `;
+            };
+
+            sidebarButtonStructure.onclick = function () {
+              content.innerHTML = `
+        <h3>Завдання 1: Зовнішній вигляд макету</h3>
+        <p>Макет проекту:</p>
+        <img src= "images/maket-1.jpg" alt="Макет проекту" style="width:100%; max-width:800px;">
+         <img src= "images/maket-2.jpg" alt="Макет проекту" style="width:100%; max-width:800px;">
+         <p>Або HTML код макету:</p>
+           <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;AI Assistants Development&lt;/title&gt;
+  &lt;link rel="stylesheet" href="styles-ai-development-assiastance.css"&gt;
+  &lt;link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- Header --&gt;
+  &lt;header id="main-header-2"&gt;
+    &lt;nav&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#about-ai"&gt;About AI&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#projects"&gt;Projects&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#benefits"&gt;Benefits&lt;/a&gt;&lt;/li&gt;  
+        &lt;li&gt;&lt;a href="#faq"&gt;FAQ&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#contact"&gt;Ask Us&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;!-- Main Banner --&gt;
+  &lt;section id="banner" style="text-align: center; padding: 20px; background-color: #f4f4f4;"&gt;
+    &lt;h1&gt;AI Assistants Development&lt;/h1&gt;
+    &lt;p&gt;We provide intelligent, efficient, and scalable AI solutions for your business!&lt;/p&gt;
+    &lt;img src="images/ai-banner.jpeg" alt="AI Banner" style="max-width: 200%; height: auto;"&gt;
+  &lt;/section&gt;
+
+  &lt;!-- Key Features Section --&gt;
+  &lt;section id="features" style="background-color: #fff; padding: 40px;"&gt;
+    &lt;h2 style="text-align: center;"&gt;Why Choose AI Solutions?&lt;/h2&gt;
+    &lt;div style="display: flex; justify-content: space-around;"&gt;
+      &lt;div style="flex: 1; text-align: center; padding: 10px;"&gt;
+        &lt;h3&gt;Automation&lt;/h3&gt;
+        &lt;p&gt;Reduce repetitive tasks and improve productivity.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div style="flex: 1; text-align: center; padding: 10px;"&gt;
+        &lt;h3&gt;Personalization&lt;/h3&gt;
+        &lt;p&gt;Enhance user experience with tailored interactions.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div style="flex: 1; text-align: center; padding: 10px;"&gt;
+        &lt;h3&gt;Scalability&lt;/h3&gt;
+        &lt;p&gt;Adapt AI to suit growing business needs.&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;!-- Success Stories --&gt;
+  &lt;section id="success-stories"&gt;  
+    &lt;div class="video-container"&gt;
+      &lt;h2&gt;Success Stories&lt;/h2&gt;
+      &lt;div class="stories-container"&gt;
+        &lt;div class="story"&gt;
+          &lt;h3&gt;Project Alpha&lt;/h3&gt;
+          &lt;p&gt;Automated customer support for global enterprise.&lt;/p&gt;
+          &lt;video controls&gt;
+            &lt;source src="videos/video-1.mp4" type="video/mp4"&gt;
+            Your browser does not support the video tag.
+          &lt;/video&gt;
+        &lt;/div&gt;
+        &lt;div class="story"&gt;
+          &lt;h3&gt;Project Beta&lt;/h3&gt;
+          &lt;p&gt;Developed a predictive analytics tool for finance.&lt;/p&gt;
+          &lt;video controls&gt;
+            &lt;source src="videos/video-2.mp4" type="video/mp4"&gt;
+            Your browser does not support the video tag.
+          &lt;/video&gt;
+        &lt;/div&gt;
+        &lt;div class="story"&gt;
+          &lt;h3&gt;Project Gamma&lt;/h3&gt;
+          &lt;p&gt;Personalized recommendations for an e-commerce platform.&lt;/p&gt;
+          &lt;video controls&gt;
+            &lt;source src="videos/video-3.mp4" type="video/mp4"&gt;
+            Your browser does not support the video tag.
+          &lt;/video&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;!-- FAQ Section --&gt;
+  &lt;section id="faq"&gt;
+    &lt;h2&gt;Frequently Asked Questions&lt;/h2&gt;
+    &lt;div class="faq-container"&gt;
+      &lt;div class="faq-item"&gt;
+        &lt;img src="images/faq1.jpeg" alt="AI Automation"&gt;
+        &lt;h3&gt;What is AI automation?&lt;/h3&gt;
+        &lt;p&gt;AI automation refers to the use of artificial intelligence to streamline and automate repetitive tasks, saving time and resources.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="faq-item"&gt;
+        &lt;img src="images/faq2.jpeg" alt="Personalization in AI"&gt;
+        &lt;h3&gt;How does AI enhance personalization?&lt;/h3&gt;
+        &lt;p&gt;AI analyzes user data to deliver tailored experiences, improving customer satisfaction and engagement.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="faq-item"&gt;
+        &lt;img src="images/faq3.jpeg" alt="AI Scalability"&gt;
+        &lt;h3&gt;Is AI scalable for growing businesses?&lt;/h3&gt;
+        &lt;p&gt;Yes, AI solutions can scale efficiently to meet the growing needs of your business.&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;!-- Contact Us --&gt;
+  &lt;section id="contact" style="background-color: #f4f4f4; padding: 40px; text-align: center;"&gt;
+    &lt;h2&gt;Contact Us&lt;/h2&gt;
+    &lt;form action="/submit" method="POST" style="display: inline-block; text-align: left;"&gt;
+      &lt;label for="name"&gt;Name:&lt;/label&gt;&lt;br&gt;
+      &lt;input type="text" id="name" name="name" required&gt;&lt;br&gt;&lt;br&gt;
+      &lt;label for="email"&gt;Email:&lt;/label&gt;&lt;br&gt;
+      &lt;input type="email" id="email" name="email" required&gt;&lt;br&gt;&lt;br&gt;
+      &lt;label for="message"&gt;Message:&lt;/label&gt;&lt;br&gt;
+      &lt;textarea id="message" name="message" rows="4" required&gt;&lt;/textarea&gt;&lt;br&gt;&lt;br&gt;
+      &lt;button type="submit"&gt;Send&lt;/button&gt;
+    &lt;/form&gt;
+  &lt;/section&gt;
+
+  &lt;footer id="footer-2"&gt;
+    &lt;p&gt;&amp;copy; 2024 AI Partnerio. All rights reserved.&lt;/p
+    `;
+            };
+          };
+          break;
+        case 4:
+          content.innerHTML = `
+                        <h3>Лабораторна робота 2.2</h3>
+                        
+                        <p>Місце розташування сайту: <a href="https://niamey.github.io/Zpi-zp41_appWEB_KornievaOlga/">Посилання на веб -застосунок</a></p> `;
+          sidebarButtonConclusion.innerText = 'Висновки до ЛР-2.2';
+          sidebarButtonConclusion.onclick = function () {
+            showText('<b>Висновки до ЛР-2.2:</b><br>  Лабораторна робота дозволила на практиці закріпити знання та навички з адаптивної верстки, медіа-запитів та мета-тега viewport. В результаті вдалося створити веб-сторінку, що коректно відображається на різних пристроях, і застосувати принципи Mobile First для досягнення найкращої продуктивності та користувацького досвіду.');
+          };
+          sidebarButton.innerText = 'Тема, мета ЛР-2.2, місце розташування сайту, звіту';
+          sidebarButtonStructure.innerText = 'Медіа -запити ';
+          sidebarButtonHTMLCodeTables.innerText = 'Мобайл версія ';
+          sidebarButtonHTMLCodeForm.innerText = 'Десктоп версія';
+          sidebarButtonHTMLCodePict.innerText = "Планшет версія";
+          sidebarButtonDescription.onclick = function () {
+            showText('<b>Опис предметного середовища.</b><br>Предметна галузь: Інтернет-платформа для ІТ-компанії "AI-partnerio".<br><p><b>Тема:</b> Створення веб-сайту для ІТ-компанії "AI-partnerio"</p><br><b>Сценарій використання сайту:</b><br>Ознайомлення з рішеннями та послугами: Користувач заходить на сайт і переглядає каталог послуг, які надає компанія.<br>Розробка систем машинного навчання.<br>Реєстрація та заповнення профілю: Користувач може створити обліковий запис, зазначити свої потреби , а також заповнити профіль для отримання персоналізованих рекомендацій.<br>Оформлення замовлення послуг<br>Отримання рекомендацій і пропозицій:');
+          };
+          sidebarButton.onclick = function () {
+            showText('<b>Тема:</b> АДАПТИВНА ВЕРСТКА. МЕДІА-ЗАПИТИ. МЕТАТЕГ VIEWPORT.<br><p><b>Мета:</b> Адаптивна верстка. Медіа-запити. Медіа-типи. Медіа-функції. Метатег viewport. Інструменти розробника. Стратегія Mobile First.</p> <br> <b>Посилання на сайт: </b> <a href="https://niamey.github.io/Zpi-zp41_appWEB_KornievaOlga/">Посилання на веб-застосунок</a> <br> <b>Посилання на звіт: </b> <a href="https://niamey.github.io/Zpi-zp41_appRECORD_KornievaOlga/">Посилання на звіт </a>');
+            sidebarButtonStructure.onclick = function () {
+              content.innerHTML = `
+    <pre style="white-space: pre-wrap; word-wrap: break-word; font-family: monospace; line-height: 1.5; padding: 20px; background-color: #f4f4f4; border-radius: 5px;">
+/* Мобильний режим */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-list li a {
+        font-size: 1rem;
+    }
+}
+
+/* Стилі для десктопа   */
+@media (min-width: 1024px) {
+ 
+    header nav ul {
+        justify-content: flex-start;
+    }
+
+    header nav ul li {
+        margin-left: 20px;
+    }
+
+    header nav ul li a {
+        margin-left: 0;
+    }
+
+    .nav {
+        gap: 50px;
+    }
+
+    .nav-list {
+        gap: 50px;
+    }
+
+    .nav-list li a {
+        font-size: 1.4rem;
+    }
+
+    .video-container {
+        padding: 30px;
+    }
+
+    .stories-container {
+        justify-content: space-between;
+    }
+
+    .story {
+        width: 25%;
+    }
+
+    .faq-item {
+        flex: 1 1 calc(25% - 40px);
+        max-width: 250px;
+    }
+
+    .faq-item h3 {
+        font-size: 20px;
+    }
+
+    .faq-item p {
+        font-size: 16px;
+    }
+}
+
+/* Стилі для планшету   */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .header {
+      flex-direction: row;
+      justify-content: space-between;
+  }
+
+  .nav {
+      flex-direction: row;
+      gap: 30px;
+  }
+
+  .nav-list {
+      flex-direction: row;
+      gap: 25px;
+  }
+
+  .faq-item {
+      flex: 1 1 calc(50% - 40px);
+  }
+
+  .story {
+      width: 45%;
+  }
+}
+</pre>
+    `;
+            };
+            sidebarButtonHTMLCodeTables.onclick = function () {
+              content.innerHTML = `
+    <pre style="white-space: pre-wrap; word-wrap: break-word; font-family: monospace; line-height: 1.5; padding: 20px; background-color: #f4f4f4; border-radius: 5px;">
+/* Мобильний режим */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-list li a {
+        font-size: 1rem;
+    }
+}
+    </pre>
+    `;
+            };
+
+            sidebarButtonHTMLCodeForm.onclick = function () {
+              content.innerHTML = `
+    <pre style="white-space: pre-wrap; word-wrap: break-word; font-family: monospace; line-height: 1.5; padding: 20px; background-color: #f4f4f4; border-radius: 5px;">
+/* Стилі для десктопа   */
+@media (min-width: 1024px) {
+ 
+    header nav ul {
+        justify-content: flex-start;
+    }
+
+    header nav ul li {
+        margin-left: 20px;
+    }
+
+    header nav ul li a {
+        margin-left: 0;
+    }
+
+    .nav {
+        gap: 50px;
+    }
+
+    .nav-list {
+        gap: 50px;
+    }
+
+    .nav-list li a {
+        font-size: 1.4rem;
+    }
+
+    .video-container {
+        padding: 30px;
+    }
+
+    .stories-container {
+        justify-content: space-between;
+    }
+
+    .story {
+        width: 25%;
+    }
+
+    .faq-item {
+        flex: 1 1 calc(25% - 40px);
+        max-width: 250px;
+    }
+
+    .faq-item h3 {
+        font-size: 20px;
+    }
+
+    .faq-item p {
+        font-size: 16px;
+    }
+}
+    </pre>
+    `;
+            }
+
+            sidebarButtonHTMLCodePict.onclick = function () {
+              content.innerHTML = `
+    <pre style="white-space: pre-wrap; word-wrap: break-word; font-family: monospace; line-height: 1.5; padding: 20px; background-color: #f4f4f4; border-radius: 5px;">
+/* Стилі для планшету   */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .header {
+      flex-direction: row;
+      justify-content: space-between;
+  }
+
+  .nav {
+      flex-direction: row;
+      gap: 30px;
+  }
+
+  .nav-list {
+      flex-direction: row;
+      gap: 25px;
+  }
+
+  .faq-item {
+      flex: 1 1 calc(50% - 40px);
+  }
+
+  .story {
+      width: 45%;
+  }
+}
+</pre>
+    `;
+            };
+          };
+
+          break;
+        case 5:
+          content.innerHTML = `
+                        <h3>Лабораторна робота 3.1</h3>
+                   
+                        <p>Місце розташування сайту: <a href="https://niamey.github.io/Zpi-zp41_appWEB_KornievaOlga/">Посилання на веб -застосунок </a></p>`;
+          sidebarButtonConclusion.innerText = 'Висновки до ЛР-3.1';
+          sidebarButton.innerText = 'Завдання- 1';
+          sidebarButtonDescription.onclick = function () {
+            showText('<b>Тема, мета ЛР-3.1, місце розташування сайту, звіту:</b><br><b>Тема:</b> ФУНКЦІОНАЛЬНЕ ЗАСТОСУВАННЯ JAVASCRIPT У HTML-ДОКУМЕНТІ. <br>ВИКОРИСТАННЯ МАСИВІВ У JS-СЦЕНАРІЯХ. РЕАЛІЗАЦІЯ ПРОГРАМ <br> ЗАСОВАМИ МОВИ JAVASCRIPT <br><b> Мета:</b> придбати практичні навички роботи з конструкціями мови JS, масивами та фугкціями у js-сценаріях. Реалізація програм засовами мови JAVASCRIPT  <br><p> <b>Посилання на сайт: </b> <a href=" https://niamey.github.io/zpi-zp41_appINDEPENDENT_KornievaOlga/ ">Посилання на веб-застосунок</a> <br> <b>Посилання на звіт: </b> <a href="https://niamey.github.io/Zpi-zp41_appRECORD_KornievaOlga/">Посилання на  звіт  </a></p><br><b>Посилання на реопзиторій звіту: </b>  <a href="  https://github.com/Niamey/Zpi-zp41_appRECORD_KornievaOlga/">Посилання на  репозиторій звіту </a><br><b>Посилання на реопзиторій веб застосунку: </b>  <a href="  https://github.com/Niamey/zpi-zp41_appINDEPENDENT_KornievaOlga/ ">Посилання на  репозиторій веб застосунку </a></p>');
+          };
+          sidebarButtonStructure.innerText = 'Завдання- 2';
+          sidebarButtonHTMLCodeTables.innerText = 'Завдання-3';
+          sidebarButtonHTMLCodeForm.innerText = 'Завдання- 4';
+          sidebarButtonHTMLCodePict.innerText = 'Завдання- 5';
+          sidebarButtonDescription.innerText = 'Тема, мета ЛР-3.1, місце розташування сайту, звіту';
+          document.getElementById('sidebarButton').onclick = function () {
+
+            sidebarButton.onclick = function () {
+              content.innerHTML = `
+        <img src="images/new_exp.png" alt="виконання задачі -1 " style="width:100%; max-width:800px;">
+       <pre><code>
+        &lt;!DOCTYPE html&gt;
+        &lt;html lang=&quot;en&quot;&gt;
+        &lt;head&gt;
+            &lt;meta charset=&quot;UTF-8&quot;&gt;
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+            &lt;title&gt;Shipping Message&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+
+        &lt;script&gt;
+        function getShippingMessage(country, price, deliveryFee) {
+            const totalPrice = price + deliveryFee;
+             return \`Shipping to \${country} will cost \${totalPrice} credits\`;
+        } <br>
+        &lt;/script&gt;
+
+        &lt;/body&gt;
+        &lt;/html&gt;
+        </code></pre>`;
+            };
+
+            sidebarButtonStructure.onclick = function () {
+              content.innerHTML = `
+        <img src="images/new_exp-1.png" alt="виконання задачі -2 " style="width:100%; max-width:800px;"> <br>
+        &lt;!DOCTYPE html&gt;<br>
+        &lt;html lang=&quot;en&quot;&gt;<br>
+        &lt;head&gt;<br>
+            &lt;meta charset=&quot;UTF-8&quot;&gt;<br>
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;<br>
+            &lt;title&gt;Shipping and Droid Sales&lt;/title&gt;<br>
+        &lt;/head&gt;<br>
+        &lt;body&gt;<br>
+
+        &lt;script&gt;<br>
+        function getShippingMessage(country, price, deliveryFee) {<br>
+            const totalPrice = price + deliveryFee;<br>
+            return \`Shipping to \${country} will cost \${totalPrice} credits\`;<br>
+        }<br>
+
+        function makeTransaction(quantity, pricePerDroid, customerCredits) {<br>
+            const totalPrice = quantity * pricePerDroid;<br>
+
+            if (totalPrice > customerCredits) {<br>
+                return "Insufficient funds!";<br>
+            } else {<br>
+                return \`You ordered \${quantity} droids worth \${totalPrice} credits!\`;<br>
+            }<br>
+        }<br>
+        &lt;/script&gt;<br>
+
+        &lt;/body&gt;<br>
+        &lt;/html&gt;`;
+            };
+            sidebarButtonHTMLCodeTables.onclick = function () {
+              content.innerHTML = `
+        <img src="images/new_exp-2.png" alt="виконання задачі -3 " style="width:100%; max-width:800px;"> <br>
+        
+        &lt;!DOCTYPE html&gt;<br>
+        &lt;html lang=&quot;en&quot;&gt;<br>
+        &lt;head&gt;<br>
+            &lt;meta charset=&quot;UTF-8&quot;&gt;<br>
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;<br>
+            &lt;title&gt;Shipping, Droid Sales and Array Maker&lt;/title&gt;<br>
+        &lt;/head&gt;<br>
+        &lt;body&gt;<br>
+
+        &lt;script&gt;<br>
+        function getShippingMessage(country, price, deliveryFee) {<br>
+            const totalPrice = price + deliveryFee;<br>
+            return \`Shipping to \${country} will cost \${totalPrice} credits\`;<br>
+        }<br>
+
+        function makeTransaction(quantity, pricePerDroid, customerCredits) {<br>
+            const totalPrice = quantity * pricePerDroid;<br>
+
+            if (totalPrice > customerCredits) {<br>
+                return "Insufficient funds!";<br>
+            } else {<br>
+                return \`You ordered \${quantity} droids worth \${totalPrice} credits!\`;<br>
+            }<br>
+        }<br>
+
+        function makeArray(firstArray, secondArray, maxLength) {<br>
+            const newArray = firstArray.concat(secondArray);<br>
+
+            if (newArray.length > maxLength) {<br>
+                return newArray.slice(0, maxLength);<br>
+            } else {<br>
+                return newArray;<br>
+            }<br>
+        }<br>
+        &lt;/script&gt;<br>
+
+        &lt;/body&gt;<br>
+        &lt;/html&gt;`;
+            };
+
+            sidebarButtonHTMLCodeForm.onclick = function () {
+              content.innerHTML = `
+        <img src="images/new_exp-3.png" alt="виконання задачі -3 " style="width:100%; max-width:800px;"> <br>
+        <img src="images/new_exp-4.png" alt="виконання задачі -3 " style="width:100%; max-width:800px;"> <br>
+        <img src="images/new_exp-5.png" alt="виконання задачі -3 " style="width:100%; max-width:800px;"> <br>
+
+        &lt;!DOCTYPE html&gt;<br>
+        &lt;html lang=&quot;en&quot;&gt;<br>
+        &lt;head&gt;<br>
+            &lt;meta charset=&quot;UTF-8&quot;&gt;<br>
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;<br>
+            &lt;title&gt;Array Tasks&lt;/title&gt;<br>
+        &lt;/head&gt;<br>
+        &lt;body&gt;<br>
+
+        &lt;script&gt;<br>
+        function getShippingMessage(country, price, deliveryFee) {<br>
+            const totalPrice = price + deliveryFee;<br>
+            return \`Shipping to \${country} will cost \${totalPrice} credits\`;<br>
+        }<br>
+
+        function makeTransaction(quantity, pricePerDroid, customerCredits) {<br>
+            const totalPrice = quantity * pricePerDroid;<br>
+
+            if (totalPrice > customerCredits) {<br>
+                return "Insufficient funds!";<br>
+            } else {<br>
+                return \`You ordered \${quantity} droids worth \${totalPrice} credits!\`;<br>
+            }<br>
+        }<br>
+
+        function makeArray(firstArray, secondArray, maxLength) {<br>
+            const newArray = firstArray.concat(secondArray);<br>
+
+            if (newArray.length > maxLength) {<br>
+                return newArray.slice(0, maxLength);<br>
+            } else {<br>
+                return newArray;<br>
+            }<br>
+        }<br>
+
+        // Task 1: Create array C based on arrays A and B<br>
+        function createArrayC(arrayA, arrayB) {<br>
+            const arrayC = [];<br>
+            
+            for (let i = 0; i < arrayA.length; i++) {<br>
+                if (arrayA[i] === arrayB[i]) {<br>
+                    arrayC[i] = 1;<br>
+                } else {<br>
+                    arrayC[i] = 1 / (arrayA[i] - arrayB[i]);<br>
+                }<br>
+            }<br>
+            
+            // Find max element and its index<br>
+            let maxIndex = 0;<br>
+            for (let i = 1; i < arrayC.length; i++) {<br>
+                if (arrayC[i] > arrayC[maxIndex]) {<br>
+                    maxIndex = i;<br>
+                }<br>
+            }<br>
+            
+            // Swap max element with first element<br>
+            if (maxIndex !== 0) {<br>
+                const temp = arrayC[0];<br>
+                arrayC[0] = arrayC[maxIndex];<br>
+                arrayC[maxIndex] = temp;<br>
+            }<br>
+            
+            return arrayC;<br>
+        }<br>
+
+        // Task 2: Bubble sort implementation<br>
+        function bubbleSort(arr) {<br>
+            const n = arr.length;<br>
+            let sorted = false;<br>
+            
+            while (!sorted) {<br>
+                sorted = true;<br>
+                for (let i = 0; i < n - 1; i++) {<br>
+                    if (arr[i] > arr[i + 1]) {<br>
+                        // Swap elements<br>
+                        const temp = arr[i];<br>
+                        arr[i] = arr[i + 1];<br>
+                        arr[i + 1] = temp;<br>
+                        sorted = false;<br>
+                    }<br>
+                }<br>
+            }<br>
+            return arr;<br>
+        }<br>
+
+        // Test functions<br>
+        function testArrayTasks() {<br>
+            // Test data<br>
+            const arrayA = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];<br>
+            const arrayB = [2, 4, 3, 2, 5, 6, 7, 8, 9, 1];<br>
+            
+            console.log("Initial arrays:");<br>
+            console.log("Array A:", arrayA);<br>
+            console.log("Array B:", arrayB);<br>
+            
+            // Task 1<br>
+            const arrayC = createArrayC(arrayA, arrayB);<br>
+            console.log("\nArray C (after creation and max element swap):");<br>
+            console.log(arrayC);<br>
+            
+            // Task 2<br>
+            const arrayToSort = [...arrayC]; // Create a copy for sorting<br>
+            console.log("\nBubble Sort:");<br>
+            console.log("Before sorting:", arrayToSort);<br>
+            const sortedArray = bubbleSort(arrayToSort);<br>
+            console.log("After sorting:", sortedArray);<br>
+        }<br>
+
+        // Run tests when the page loads<br>
+        window.onload = testArrayTasks;<br>
+        &lt;/script&gt;<br>
+
+        &lt;/body&gt;<br>
+        &lt;/html&gt;`;
+            };
+            sidebarButtonHTMLCodePict.onclick = function () {
+              content.innerHTML = `
+        <img src="images/new_exp-6.png" alt="виконання задачі -3 " style="width:100%; max-width:800px;"> <br>
+        &lt;!DOCTYPE html&gt;<br>
+        &lt;html lang="en"&gt;<br>
+        &lt;head&gt;<br>
+        &nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br>
+        &nbsp;&nbsp;&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<br>
+        &nbsp;&nbsp;&lt;title&gt;Array Tasks and Text Editor&lt;/title&gt;<br>
+        &nbsp;&nbsp;&lt;link rel="stylesheet" href="styles.css"&gt;<br>
+        &lt;/head&gt;<br>
+        &lt;body&gt;<br>
+        &nbsp;&nbsp;&lt;!-- Text Editor Interface --&gt;<br>
+        &nbsp;&nbsp;&lt;div class="editor-container"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="toolbar"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button onclick="formatText('bold')" title="Bold"&gt;&lt;strong&gt;B&lt;/strong&gt;&lt;/button&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button onclick="formatText('italic')" title="Italic"&gt;&lt;em&gt;I&lt;/em&gt;&lt;/button&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button onclick="formatText('underline')" title="Underline"&gt;&lt;u&gt;U&lt;/u&gt;&lt;/button&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="color" class="color-picker" onchange="changeColor(this.value)" title="Text Color"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button onclick="changeCase('upper')" title="UPPERCASE"&gt;AA&lt;/button&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button onclick="changeCase('lower')" title="lowercase"&gt;aa&lt;/button&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div id="editor" contenteditable="true"&gt;Enter your text here...&lt;/div&gt;<br>
+        &nbsp;&nbsp;&lt;/div&gt;<br>
+        &lt;script&gt;<br>
+        // Your existing functions<br>
+        function getShippingMessage(country, price, deliveryFee) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;const totalPrice = price + deliveryFee;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return \`Shipping to \${country} will cost \${totalPrice} credits\`;<br>
+        }<br>
+        function makeTransaction(quantity, pricePerDroid, customerCredits) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;const totalPrice = quantity * pricePerDroid;<br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if (totalPrice > customerCredits) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "Insufficient funds!";<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return \`You ordered \${quantity} droids worth \${totalPrice} credits!\`;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        }<br>
+        function makeArray(firstArray, secondArray, maxLength) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;const newArray = firstArray.concat(secondArray);<br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if (newArray.length > maxLength) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return newArray.slice(0, maxLength);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return newArray;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        }<br>
+        function createArrayC(arrayA, arrayB) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;const arrayC = [];<br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;for (let i = 0; i < arrayA.length; i++) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (arrayA[i] === arrayB[i]) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arrayC[i] = 1;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arrayC[i] = 1 / (arrayA[i] - arrayB[i]);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;let maxIndex = 0;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;for (let i = 1; i < arrayC.length; i++) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (arrayC[i] > arrayC[maxIndex]) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maxIndex = i;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if (maxIndex !== 0) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const temp = arrayC[0];<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arrayC[0] = arrayC[maxIndex];<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arrayC[maxIndex] = temp;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return arrayC;<br>
+        }<br>
+        function bubbleSort(arr) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;const n = arr.length;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;let sorted = false;<br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;while (!sorted) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sorted = true;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (let i = 0; i < n - 1; i++) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (arr[i] > arr[i + 1]) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const temp = arr[i];<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arr[i] = arr[i + 1];<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arr[i + 1] = temp;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sorted = false;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return arr;<br>
+        }<br>
+        function testArrayTasks() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;const arrayA = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;const arrayB = [2, 4, 3, 2, 5, 6, 7, 8, 9, 1];<br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;console.log("Initial arrays:");<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;console.log("Array A:", arrayA);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;console.log("Array B:", arrayB);<br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;const arrayC = createArrayC(arrayA, arrayB);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;console.log("\nArray C (after creation and max element swap):");<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;console.log(arrayC);<br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;const arrayToSort = [...arrayC];<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;console.log("\nBubble Sort:");<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;console.log("Before sorting:", arrayToSort);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;const sortedArray = bubbleSort(arrayToSort);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;console.log("After sorting:", sortedArray);<br>
+        }<br>
+        // Enhanced Text Editor Functions with Console Logging<br>
+        function logEditorAction(action, details = '') {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;const editorContent = document.getElementById('editor').innerHTML;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;console.log(\`Text Editor Action: \${action}\`);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;console.log(\`Details: \${details}\`);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;console.log('Current Editor Content:', editorContent);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;console.log('----------------------------------------');<br>
+        }<br>
+        function formatText(command) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;document.execCommand(command, false, null);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;logEditorAction(command);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById('editor').focus();<br>
+        }<br>
+        function changeColor(color) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;document.execCommand('foreColor', false, color);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;logEditorAction('color change', \`New color: \${color}\`);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById('editor').focus();<br>
+        }<br>
+        function changeCase(command) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;const editor = document.getElementById('editor');<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;const content = editor.innerText;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if (command === 'upper') {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;editor.innerText = content.toUpperCase();<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;} else if (command === 'lower') {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;editor.innerText = content.toLowerCase();<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;logEditorAction('case change', \`New case: \${command}\`);<br>
+        }<br>
+        testArrayTasks();<br>
+        &lt;/script&gt;<br>
+        &lt;/body&gt;<br>
+        &lt;/html&gt;<br>
+    `;
+            };
+            sidebarButtonConclusion.onclick = function () {
+              showText('<b> Висновки до Лр 3-1:</b><br> Під час виконання цієї лабораторної роботи вдалося закріпити навички використання мови JavaScript для створення інтерактивних веб-додатків. Особливу увагу було приділено роботі з масивами, написанню функцій та реалізації їх у практичних задачах. Виконання завдань дозволило краще зрозуміти, як правильно застосовувати конструкції JavaScript для обробки даних і виконання розрахунків. Завдяки роботі з кодом і тестуванням результатів було отримано практичний досвід, який стане в нагоді для майбутніх проектів.  ');
+            };
+
+          };
+          break;
+        case 6:
+          content.innerHTML = `
+                        <h3>Лабораторна робота 3.2</h3>
+    
+                        <p>Місце розташування сайту: <a href="https://niamey.github.io/Zpi-zp41_appWEB_KornievaOlga/">Посилання на веб -застосунок</a></p>`;
+          sidebarButtonConclusion.innerText = 'Висновки до ЛР-3.2';
+          sidebarButton.innerText = 'Завдання- 2';
+          sidebarButtonStructure.innerText = 'Завдання- 4';
+          sidebarButtonHTMLCodeTables.innerText = 'Завдання-6';
+          sidebarButtonHTMLCodeForm.innerText = 'Завдання- 8';
+          sidebarButtonHTMLCodePict.innerText = 'Завдання- 10';
+
+          sidebarButtonDescription.onclick = function () {
+            showText('<b>Тема, мета ЛР-3.2, місце розташування сайту, звіту:</b><br><b>Тема:</b>ОБ\`ЄКТ МЕТОДИ ОБ\`ЄКТА. МАСИВ ОБ\`ЄКТІВ. ДЕСТРУКТУРИЗАЦІЯ ОБ\`ЄКТІВ. CALLBACK. СТРІЛОЧНІ ФУНКЦІЇ. СТРІЛОЧНІ ФУНКЦІЇ ЯК  <br> КОЛБЕКИ​. <br><b> Мета:</b> придбати практичні навички роботи з об\`єктами. Методи об\`єкта. Callback. Стрілочні функції. Стрілочні функції як колбеки. Реалізація програм засовами мови JAVASCRIPT  <br><p> <b>Посилання на сайт: </b> <a href=" https://niamey.github.io/zpi-zp41_appINDEPENDENT_KornievaOlga-3.2/ ">Посилання на веб-застосунок</a> <br> <b>Посилання на звіт: </b> <a href="https://niamey.github.io/Zpi-zp41_appRECORD_KornievaOlga/">Посилання на  звіт  </a></p><br><b>Посилання на реопзиторій звіту: </b>  <a href="  https://github.com/Niamey/Zpi-zp41_appRECORD_KornievaOlga/">Посилання на  репозиторій звіту </a><br><b>Посилання на реопзиторій веб застосунку: </b>  <a href="  https://github.com/Niamey/zpi-zp41_appINDEPENDENT_KornievaOlga-3.2/ ">Посилання на  репозиторій веб застосунку </a></p>');
+          };
+          sidebarButtonDescription.innerText = 'Тема, мета ЛР-3.2, місце розташування сайту, звіту';
+          sidebarButton.onclick = function () {
+            content.innerHTML = `
+        <img src="images/laba-3.2-1.png" alt="виконання задачі -2 " style="width:100%; max-width:800px;"> <br>
+        &lt;!DOCTYPE html&gt;<br>
+        &lt;html lang=&quot;en&quot;&gt;<br>
+        &lt;head&gt;<br>
+            &lt;meta charset=&quot;UTF-8&quot;&gt;<br>
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;<br>
+            &lt;title&gt;Product Details Console&lt;/title&gt;<br>
+        &lt;/head&gt;<br>
+        &lt;body&gt;<br>
+            &lt;h2&gt;Open console (F12) to see results&lt;/h2&gt;<br>
+
+        &lt;script&gt;<br>
+        // Sample product database<br>
+        const products = [<br>
+            { id: 1, name: "Laptop", price: 999.99, description: "High-performance laptop" },<br>
+            { id: 2, name: "Smartphone", price: 499.99, description: "Latest model smartphone" },<br>
+            { id: 3, name: "Headphones", price: 99.99, description: "Wireless headphones" }<br>
+        ];<br>
+
+        function getProductDetails(productId, successCallback, errorCallback) {<br>
+            console.log(\`\nSearching for product with ID: \${productId}\`);<br>
+            console.log('------------------------');<br>
+            
+            setTimeout(() => {<br>
+                const product = products.find(p => p.id === productId);<br>
+                
+                if (product) {<br>
+                    successCallback(product);<br>
+                } else {<br>
+                    errorCallback(\`Product with ID \${ productId } not found\`);<br>
+                }<br>
+            }, 1000);<br>
+        }<br>
+
+        // Success callback<br>
+        function handleSuccess(product) {<br>
+            console.log('SUCCESS:');<br>
+            console.log('Product details:');<br>
+            console.table(product); // Using console.table for better visualization<br>
+            console.log('------------------------');<br>
+        }<br>
+
+        // Error callback<br>
+        function handleError(error) {<br>
+            console.log('ERROR:');<br>
+            console.error(error);<br>
+            console.log('------------------------');<br>
+        }<br>
+
+        // Function to test in console<br>
+        function testProduct(id) {<br>
+            console.clear(); // Clear previous console output<br>
+            console.log('Starting product search test...');<br>
+            getProductDetails(id, handleSuccess, handleError);<br>
+        }<br>
+
+        // Initial tests when page loads<br>
+        console.log('Product Details Testing');<br>
+        console.log('======================');<br>
+        console.log('Available test commands:');<br>
+        console.log('testProduct(id) - Test with specific product ID');<br>
+        console.log('Example: testProduct(1)');<br>
+        console.log('\nAvailable products:');<br>
+        console.table(products); // Show available products in table format<br>
+
+        // Can be tested in console using:<br>
+        // testProduct(1) - for existing product<br>
+        // testProduct(99) - for non-existent product<br>
+        &lt;/script&gt;<br>
+
+        &lt;/body&gt;<br>
+        &lt;/html&gt;`;
+          };
+          sidebarButtonStructure.onclick = function () {
+            content.innerHTML = `
+        <img src="images/laba-3.2-4.png" alt="Concert Image" style="margin-top: 20px; width: 100%;" />
+        <pre>&lt;!DOCTYPE html&gt;
+        &lt;html lang="en"&gt;
+        &lt;head&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;title&gt;Concerts Functionality&lt;/title&gt;
+            &lt;script&gt;
+                // Concerts functionality
+                const concerts = {
+                    Київ: new Date("2020-04-01"),
+                    Умань: new Date("2025-07-02"),
+                    Вінниця: new Date("2020-04-21"),
+                    Одеса: new Date("2025-03-15"),
+                    Хмельницький: new Date("2020-04-18"),
+                    Харків: new Date("2025-07-10"),
+                };
+
+                // Function to process concerts
+                const processConcerts = () =&gt; {
+                    const currentDate = new Date();
+
+                    // Get array of cities with future concerts and sort them
+                    const futureConcerts = Object.entries(concerts)
+                        .filter(([_, date]) => date &gt; currentDate) // Filter only future concerts
+                        .sort(([, dateA], [, dateB]) =&gt; dateA - dateB) // Sort by date
+                        .map(([city]) =&gt; city); // Get only city names
+
+                    const output = document.getElementById("output");
+                    output.innerHTML = "&lt;strong&gt;Future concerts (chronologically):&lt;/strong&gt; " + futureConcerts.join(", ");
+
+                    return futureConcerts;
+                };
+
+                // Function to test all functionality
+                const testAll = () =&gt; {
+                    console.clear();
+                    console.log("Testing All Functionality");
+                    console.log("======================");
+
+                    // Test concerts
+                    console.log("1. Processing Concerts:");
+                    const futureConcerts = processConcerts();
+                    console.log("Future concerts:", futureConcerts);
+
+                    // Additional placeholder for other tests
+                    console.log("\n2. Additional functionality can be added here.");
+                };
+            &lt;/script&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;h1&gt;Concerts Functionality&lt;/h1&gt;
+            &lt;button onclick="processConcerts()"&gt;Process Concerts&lt;/button&gt;
+            &lt;button onclick="testAll()"&gt;Test All&lt;/button&gt;
+            &lt;div id="output" style="margin-top: 20px; font-size: 1.2em;"&gt;&lt;/div&gt;
+            &lt;script&gt;
+                console.log("Available commands:");
+                console.log("processConcerts() - Process concerts data");
+                console.log("testAll() - Run all tests");
+            &lt;/script&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;</pre>
+    `;
+          };
+
+          sidebarButtonHTMLCodeTables.onclick = function () {
+            content.innerHTML = `
+        <!-- Вставка картинки -->
+        <img src="images/laba-3.2.6.png" alt="Medicines Discount" style="margin-top: 20px; width: 100%;" />
+
+        <!-- HTML код -->
+        <pre>&lt;!DOCTYPE html&gt;
+        &lt;html lang="en"&gt;
+        &lt;head&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;title&gt;Medicines Discount&lt;/title&gt;
+            &lt;script&gt;
+                const medicines = [
+                    { name: "Noshpa", price: 170 },
+                    { name: "Analgin", price: 55 },
+                    { name: "Quanil", price: 310 },
+                    { name: "Alphacholine", price: 390 },
+                ];
+
+                // Function to apply discount and add IDs
+                const applyDiscount = (medicines) =&gt; {
+                    return medicines.map((medicine, index) =&gt; {
+                        if (medicine.price &gt; 300) {
+                            return {
+                                id: index + 1,
+                                name: medicine.name,
+                                price: medicine.price,
+                                discountedPrice: +(medicine.price * 0.7).toFixed(2),
+                            };
+                        }
+                        return {
+                            id: index + 1,
+                            name: medicine.name,
+                            price: medicine.price,
+                        };
+                    });
+                };
+
+                // Display the result
+                const displayMedicines = () =&gt; {
+                    const discountedMedicines = applyDiscount(medicines);
+                    console.clear();
+                    console.log("Updated Medicines List:");
+                    discountedMedicines.forEach(med =&gt; {
+                        const discountInfo = med.discountedPrice ? \` (Discounted Price: \${med.discountedPrice} грн)\` : "";
+                        console.log(\`ID: \${med.id}, Name: \${med.name}, Price: \${med.price} грн\${discountInfo}\`);
+                    });
+                };
+            &lt;/script&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;h1&gt;Medicines Discount&lt;/h1&gt;
+            &lt;button onclick="displayMedicines()"&gt;Show Discounted Medicines&lt;/button&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;</pre>
+    `;
+          };
+          sidebarButtonHTMLCodeForm.onclick = function () {
+            content.innerHTML = `
+        <!-- Вставка картинки -->
+        <img src="images/laba-3.2-8.png" alt="Storage Constructor" style="margin-top: 20px; width: 100%;" />
+
+        <!-- HTML код -->
+        <pre>&lt;!DOCTYPE html&gt;
+        &lt;html lang="en"&gt;
+        &lt;head&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;title&gt;Storage Constructor&lt;/title&gt;
+            &lt;script&gt;
+                // Storage constructor function
+                function Storage(initialItems) {
+                    this.items = initialItems;
+
+                    // Method to get items
+                    this.getItems = function () {
+                        return this.items;
+                    };
+
+                    // Method to add an item
+                    this.addItem = function (item) {
+                        this.items.push(item);
+                    };
+
+                    // Method to remove an item
+                    this.removeItem = function (item) {
+                        const index = this.items.indexOf(item);
+                        if (index !== -1) {
+                            this.items.splice(index, 1);
+                        }
+                    };
+                }
+
+                // Example usage
+                const arr = ["apple", "banana", "mango"];
+                const storage = new Storage(arr);
+
+                // Display storage operations in console
+                const testStorage = () =&gt; {
+                    console.clear();
+
+                    console.log("Initial items:", storage.getItems());
+
+                    storage.addItem("orange");
+                    console.log("After adding 'orange':", storage.getItems());
+
+                    storage.removeItem("banana");
+                    console.log("After removing 'banana':", storage.getItems());
+                };
+            &lt;/script&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;h1&gt;Storage Management&lt;/h1&gt;
+            &lt;button onclick="testStorage()"&gt;Test Storage Operations&lt;/button&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;</pre>
+    `;
+          };
+          sidebarButtonHTMLCodePict.onclick = function () {
+            content.innerHTML = `
+        <!-- Вставка картинки -->
+        <img src="images/laba-3.2-10.png" alt="Bracket Checker" style="margin-top: 20px; width: 100%;" />
+
+        <!-- HTML код -->
+        <pre>&lt;!DOCTYPE html&gt;
+        &lt;html lang="en"&gt;
+        &lt;head&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;title&gt;Check Brackets&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;h1&gt;Bracket Checker&lt;/h1&gt;
+            &lt;textarea id="codeInput" rows="10" cols="50" placeholder="Введіть JavaScript код"&gt;&lt;/textarea&gt;
+            &lt;br&gt;
+            &lt;button onclick="checkCode()"&gt;Перевірити дужки&lt;/button&gt;
+
+            &lt;div id="result"&gt;&lt;/div&gt; &lt;!-- Місце для відображення результату на сторінці --&gt;
+
+            &lt;script&gt;
+                function checkBrackets(str) {
+                    const stack = [];
+                    const brackets = {
+                        '(': ')',
+                        '{': '}',
+                        '[': ']'
+                    };
+
+                    for (const char of str) {
+                        if (brackets[char]) {
+                            stack.push(char); // Відкриваюча дужка
+                        } else if (Object.values(brackets).includes(char)) {
+                            if (brackets[stack.pop()] !== char) {
+                                return false; // Невідповідність дужок
+                            }
+                        }
+                    }
+
+                    return stack.length === 0; // Перевірка, чи всі дужки закриті
+                }
+
+                function checkCode() {
+                    const input = document.getElementById('codeInput').value;
+                    const result = checkBrackets(input);
+
+                    // Вивести результат у консоль
+                    console.log(result
+                        ? "Код коректний!"
+                        : "Помилка: дужки некоректні!");
+
+                    // Вивести результат на веб-сторінці
+                    const resultDiv = document.getElementById('result');
+                    resultDiv.textContent = result
+                        ? "Код коректний!"
+                        : "Помилка: дужки некоректні!";
+                }
+            &lt;/script&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;</pre>
+    `;
+          };
+          sidebarButtonConclusion.onclick = function () {
+    showText('<b>Висновки до Лр 3-2:</b><br>У ході виконання лабораторної роботи з JavaScript були опрацьовані основні концепції, пов\'язані з об\'єктами, методами об\'єктів, масивами об\'єктів, а також важливі аспекти використання callback-функцій та стрілочних функцій. Масиви об\'єктів виявились ефективним способом організації даних, де кожен елемент масиву може бути об\'єктом з власними властивостями та методами. Робота з такими масивами дозволяє зручно маніпулювати великими наборами даних, виконувати пошук, фільтрацію та модифікацію елементів. Методи об\'єктів, у свою чергу, надають можливість змінювати стан об\'єкта та виконувати дії, пов\'язані з його властивостями. Вони також дозволяють реалізувати взаємодію між об\'єктами, що є ключовим елементом ООП (об\'єктно-орієнтованого програмування). Callback-функції і стрілочні функції, в свою чергу, стали важливим інструментом для асинхронного програмування. Callback-функції дозволяють обробляти результати після виконання певних дій, а стрілочні функції надають зручний та компактний синтаксис для їх оголошення. У разі використання callback-функцій у поєднанні зі стрілочними функціями, значно спрощується код і підвищується його читабельність. Розроблений веб-застосунок, який використовує ці концепції, продемонстрував зручність їх реалізації на практиці. Зокрема, було продемонстровано як обробляти дані масивів об\'єктів, застосовувати методи до кожного елемента масиву, а також ефективно використовувати callback-функції для обробки асинхронних запитів. Під час тестування функціональності веб-застосунку було підтверджено коректність роботи всіх реалізованих функцій, включаючи масиви об\'єктів, методи об\'єктів, callback та стрілочні функції. Загалом, лабораторна робота дозволила поглибити знання в галузі об\'єктно-орієнтованого програмування та асинхронного JavaScript, а також набрати досвіду у створенні реальних веб-застосунків з використанням цих концепцій.');
+};
+
+
+          break;
+        case 7:
+          content.innerHTML = `
+                        <h3>Лабораторна робота 4.1</h3>
+                         
+                        <p>Місце розташування сайту: <a href="https://niamey.github.io/Zpi-zp41_appWEB_KornievaOlga/">Посилання на ЛР4.1</a></p>`;
+          sidebarButtonConclusion.innerText = 'Висновки до ЛР-4.1';
+          sidebarButton.innerText = 'Тема, мета ЛР-4.1, місце розташування сайту, звіту';
+          break;
+        case 8:
+          content.innerHTML = `
+                        <h3>Лабораторна робота 4.2</h3>
+                        
+                        <p>Місце розташування сайту: <a href="https://niamey.github.io/Zpi-zp41_appWEB_KornievaOlga/">Посилання на ЛР4.2</а></п>`;
+          sidebarButtonConclusion.innerText = 'Висновки до ЛР-4.2';
+          sidebarButton.innerText = 'Тема, мета ЛР-4.2, місце розташування сайту, звіту';
+          break;
+      }
+    }
+
+    function showText(text) {
+      const content = document.querySelector('.main-content');
+      content.innerHTML = `<p>${text}</p>`;
+    }
+
+  </script>
+</body>
+
+</html> 
