@@ -502,28 +502,49 @@ document.getElementById('newButton3').onclick = function () {
               sidebarButtonHTMLCodeTablesElement.insertAdjacentElement('afterend', newButtonsContainer);
 
               document.getElementById('newButton4').onclick = function () {
-                const cssCode = `
-body {
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background: url('images/robot.jpg') no-repeat center center fixed;
-  background-size: cover;
-}`;
+    const content = `
+        <b>За допомогою каскадних таблиць стилів виконати на свій розсуд стильове оформлення текстових елементів. Показати як застосовуються ⎯ шрифти:</b><br><br>
+        
+        <b>Програмний HTML-код:</b><br>
+        <pre>&lt;head&gt;<br>
+    &nbsp;&nbsp;&lt;link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"&gt;<br>
+&lt;/head&gt;<br>
+        
+        <b>CSS-код:</b><br>
+        <pre>body {<br>
+            &nbsp;&nbsp;font-family: 'Roboto', sans-serif;<br>
+            &nbsp;&nbsp;margin: 0;<br>
+            &nbsp;&nbsp;padding: 0;<br>
+            &nbsp;&nbsp;line-height: 1.6;<br>
+            &nbsp;&nbsp;background-color: #f8f9fa;<br>
+            &nbsp;&nbsp;color: #333;<br>
+        }</pre><br>
+        
+        <b>Візуалізація:</b><br>
+        <img src="images/006.jpg" alt="Візуалізація" style="width: 100%; max-width: 500px; border-radius: 5px;"><br><br>
 
-                // Экранирование для отображения как текста
-                const escapedCSS = cssCode.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\n/g, "<br>");
+        <b>За допомогою каскадних таблиць стилів виконати на свій розсуд стильове оформлення текстових елементів. Показати як застосовуються ⎯ контури:</b><br><br>
 
-                showText(
-                  '<b>html file:</b><br>' +
-                  '&lt;link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"&gt;<br>' +
-                  '<b>styles.css:</b> <br>' +
-                  escapedCSS
-                );
-              };
+        <b>Програмний HTML-код:</b><br>
+        <pre>&lt;h1&gt;Магазин морепродуктів "Рибний світ"&lt;/h1&gt;<br>
+        &lt;p&gt;Якісна заморожена риба з доставкою до вашого дому!.&lt;/p&gt;<br>
+        &lt;p&gt;Гарантія свіжості. Опт і роздріб.&lt;/p&gt;</pre><br>
+
+        <b>CSS-код:</b><br>
+        <pre>
+        p {<br>
+            &nbsp;&nbsp;outline: 1px dashed #0a0301; /* Пунктирний контур помаранчевого кольору */;<br>
+            &nbsp;&nbsp;outline-offset: 10px;<br>
+            &nbsp;&nbsp;padding: 10px;<br>
+            &nbsp;&nbsp;line-height: 1.8;<br>
+        }</pre><br>
+        
+         <b>Візуалізація:</b><br>
+        <img src="images/007.jpg" alt="Візуалізація" style="width: 100%; max-width: 500px; border-radius: 5px;"><br><br>
+    `;
+
+    showText(content);
+};
 
 
               document.getElementById('newButton5').onclick = function () {
