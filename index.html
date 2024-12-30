@@ -226,8 +226,15 @@
           sidebarButtonConclusion.innerText = 'Висновки до ЛР-1.2';
           sidebarButtonConclusion.onclick = function () {
             showText(
-                '<b>Висновки по роботі №1.2: Каскадні таблиці стилів. Селектори. Ідентифікатори. Стильове оформлення текстових елементів в HTML-документах</b><br><b><p> Переваги використання каскадних таблиць стилів (CSS):</p></b><br>1. <b>Модульність та організованість:</b> CSS дозволяє створювати зручні та структуровані стилі для різних елементів, що спрощує редагування та підтримку зовнішнього вигляду веб-сторінки.<br>2. <b>Гнучкість:</b> Можливість застосовувати різні стилі до елементів за допомогою тегів, класів та ідентифікаторів дає велику гнучкість у дизайні.<br>3. <b>Адаптивність:</b> Каскадні таблиці стилів дозволяють легко налаштовувати відображення веб-сторінок на різних пристроях, завдяки використанню медіа-запитів.<br>4. <b>Швидкість завантаження сторінок:</b> Оскільки стильові файли зберігаються окремо від HTML-коду, це зменшує розмір документа та прискорює його завантаження.<br><b><p>Недоліки використання каскадних таблиць стилів:</p></b><br>1. <b>Перекриття стилів:</b> Каскадні властивості інколи можуть призводити до небажаних перекриттів, коли один стиль перекриває інший. Це може спричиняти труднощі в управлінні стилями, особливо в великих проєктах.<br>2. <b>Невідповідність між браузерами:</b> Існує ймовірність того, що стилі можуть виглядати по-різному в різних браузерах, якщо вони не підтримують певні CSS-властивості або мають різні інтерпретації стандартів.<br>3. <b>Використання вбудованих стилів:</b> Надмірне використання вбудованих стилів у HTML-коді замість зовнішніх CSS-файлів може ускладнити підтримку сайту.<br><b>Переваги використання селекторів та ідентифікаторів:</b><br>1. <b>Точність та специфічність:</b> Селектори тегів, класів та ідентифікаторів дозволяють точно вказати елементи, до яких слід застосувати стиль, що зменшує ймовірність помилок у дизайні.<br>2. <b>Гнучкість у стилізації:</b> Використання різних типів селекторів (теги, класи, ідентифікатори) дає можливість ефективно стилізувати як окремі елементи, так і групи елементів.<br>3. <b>Підтримка багаторазового використання стилів:</b> Класи та ідентифікатори дозволяють використовувати один і той самий стиль для кількох елементів або створювати унікальні стилі для конкретних елементів на сторінці.<br><b>Недоліки використання селекторів та ідентифікаторів:</b><br>1. <b>Конфлікти селекторів:</b> Іноді застосування кількох селекторів до одного елемента може призвести до конфліктів або неочікуваних результатів, особливо якщо не враховуються специфічність та каскадність стилів.<br>2. <b>Важливість правильного структурного підходу:</b> Для ефективного використання селекторів необхідно правильно структурувати HTML-код і CSS, що може бути складним в умовах великого проєкту.<br><b>Оформлення текстових елементів в HTML-документах:</b><br>1. <b>Шрифти та контури:</b> Використання шрифтів через Google Fonts дозволяє створювати привабливий дизайн, а контури тексту допомагають виділити важливі елементи на сторінці.<br>2. <b>Фон та колір тексту:</b> Оформлення фону та кольору тексту допомагає зробити інтерфейс більш привабливим і зручним для користувачів.<br>3. <b>Таблиці та списки:</b> Стильове оформлення таблиць і списків дозволяє забезпечити зручність користування та полегшує сприйняття інформації.<br><b>Загальні висновки:</b><br>1. Використання CSS для оформлення веб-документів значно підвищує їхню естетичність, зручність і адаптивність.<br>2. Робота з селекторами дозволяє значно спростити керування стилями та дає можливість створювати гнучкі та масштабовані дизайни.<br>3. Застосування правильних технік стилізації тексту, таблиць та списків допомагає створити не тільки привабливий, але й функціональний веб-сайт.');
-          };
+        '<b>Висновки по роботі №1.2:</b><br>' +
+        '<p>Каскадні таблиці стилів є важливим інструментом для створення якісного веб-дизайну. ' +
+        'Вони дозволяють відокремити структуру HTML-документа від його зовнішнього вигляду, забезпечуючи гнучкість та повторне використання стилів.</p>' +
+        '<p>В ході роботи було засвоєно використання селекторів тегів, класів, ідентифікаторів, а також застосування різних CSS-властивостей ' +
+        'для оформлення тексту, кольору, фону, таблиць і списків.</p>' +
+        '<p>Підключення шрифтів за допомогою Google Fonts та реалізація просунутих можливостей CSS дозволили вдосконалити дизайн сторінок.</p>' +
+        '<p>Практична частина закріпила знання і дала змогу ефективно використовувати CSS у реальних проєктах.</p>'
+    );
+};
           sidebarButton.onclick = function () { 
             showText(
 '<b>Тема:</b> Каскадні таблиці стилів. Селектори, ідентифікатори. Стильове оформлення текстових елементів в html-документах.<br>' +
@@ -258,63 +265,60 @@
           }
           sidebarButtonStructure.onclick = function () {
             const htmlCode = `
-    Тема: Способи підключення стилів в HTML.
+     Тема: Методи додавання стилів у HTML.
 
-    Існує три основні способи підключення стилів:
+    В HTML є три основні способи додавання стилів:
 
-    1. **Inline styles** – стилі додаються безпосередньо в атрибути тегів HTML.
+    1. **Вбудовані стилі (Inline styles)** – стилі додаються безпосередньо в атрибути тегів. 
+       Цей спосіб підходить для невеликих змін, але не рекомендується для великих проєктів.
        Приклад:
-       <p style="color: red; font-size: 16px;">Це приклад тексту зі стилями</p>
+       <div style="color: green; font-weight: bold;">Це текст із вбудованими стилями</div>
 
-       У моєму проєкті це могло б виглядати так:
-       <button style="background-color: lightblue; border: none;">Кнопка</button>
+       У моєму проєкті це може виглядати так:
+       <button style="background-color: orange; border: 2px solid black;">Кнопка з inline-стилем</button>
 
-    2. **Internal styles** – стилі пишуться у блоці <style> всередині HTML-документу.
+    2. **Внутрішні стилі (Internal styles)** – стилі задаються у блоці <style> всередині HTML-документа.
+       Це зручно для сторінок із унікальним оформленням, проте складно підтримувати у великих проєктах.
        Приклад:
        <style>
-         p {
-           color: blue;
-           font-size: 18px;
+         h1 {
+           color: navy;
+           text-decoration: underline;
          }
        </style>
-       <p>Це текст із застосованими внутрішніми стилями.</p>
+       <h1>Текст із внутрішніми стилями</h1>
 
-       У вашому випадку можна додати стилі таким чином:
+       У нашому випадку внутрішні стилі виглядають так:
        <style>
-         button {
-           background-color: lightblue;
-           border-radius: 5px;
-           font-size: 14px;
+         .highlight {
+           background-color: lightgray;
+           padding: 10px;
+           border-radius: 4px;
          }
        </style>
+       <p class="highlight">Приклад тексту з внутрішнім стилем</p>
 
-    3. **External styles** – стилі зберігаються у зовнішньому CSS-файлі, який підключається до HTML-документа.
+    3. **Зовнішні стилі (External styles)** – стилі зберігаються у зовнішньому CSS-файлі, що підключається через тег <link>.
+       Це найкращий спосіб для великих та багаторазових проєктів.
        Приклад:
        <link rel="stylesheet" href="styles.css">
 
-       У файлі styles.css це може виглядати так:
-       button {
-         background-color: lightblue;
-         border: 1px solid #ccc;
+       У файлі styles.css:
+       .btn-primary {
+         background-color: blue;
+         color: white;
          padding: 10px 15px;
-         cursor: pointer;
+         border-radius: 5px;
+         text-transform: uppercase;
        }
 
        У HTML:
-       <button class="custom-button">Зовнішній стиль</button>
+       <button class="btn-primary">Кнопка із зовнішнім стилем</button>
 
-    Як у мене в кінці реалізовано:
-    В документі використовується зовнішнє підключення стилів через тег <link>, наприклад:
+    У проєкті використано зовнішнє підключення стилів через тег <link>, наприклад:
     <link rel="stylesheet" href="styles.css">.
 
-    Окрім цього, для створення стилів додані медіазапити для адаптивності:
-    @media (max-width: 768px) {
-      header nav ul {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
-    Вони дозволяють підлаштовувати вигляд сторінки під різні розміри екранів.
+   
   `;
 
             // Екранірування тегів для коректного відображення в браузері
@@ -354,53 +358,125 @@
 
               // Добавим обработчики для новых кнопок
               document.getElementById('newButton1').onclick = function () {
-                const selectors = [
-                  'body',
-                  'html',
-                  'header',
-                  'header nav ul',
-                  'header nav ul li a',
-                  '.hero',
-                  '.services',
-                  '.service',
-                  '.service a',
-                  '.ul',
-                  '.table-section table',
-                  '.table-section th',
-                  '.table-section td',
-                  '.contact-form form',
-                  '.contact-form input',
-                  '.contact-form textarea',
-                  '.contact-form button',
-                  '#footer',
-                  '#main-header'
-                ];
-                showText('<b>Селектори тегів:</b><br>' + selectors.join('<br>'));
-              };
+    const htmlCode = `
+        &lt;h2&gt;Чому обирають нас&lt;/h2&gt;<br>
+        &lt;h2&gt;Наші хіти продажу&lt;/h2&gt;
+    `;
+
+    const cssCode = `
+        h2 {<br>
+            &nbsp;&nbsp;color: #005bb5;<br>
+        }
+    `;
+
+    const content = `
+        <b>Програмний HTML-код:</b><br>
+        <pre>${htmlCode}</pre><br>
+        <b>CSS-код:</b><br>
+        <pre>${cssCode}</pre><br>
+        <b>Візуалізація:</b><br>
+        <img src="images/002.jpg" alt="Візуалізація" style="width: 100%; max-width: 500px; border-radius: 5px;">
+    `;
+
+    showText(content);
+};
+
 
               document.getElementById('newButton2').onclick = function () {
-                const selectors = [
-                  '.hero',
-                  '.services',
-                  '.service',
-                  '.ul',
-                  '.table-section',
-                  '.table-section th',
-                  '.table-section td',
-                  '.contact-form',
-                  '.contact-form form',
-                  '.contact-form input',
-                  '.contact-form textarea',
-                  '.contact-form button'
-                ];
-                showText('<b>Селектори класів:</b><br>' + selectors.join('<br>'));
-              };
-              document.getElementById('newButton3').onclick = function () {
-                showText('<b>Селекори ідентифікатори: </b><br> #footer, #main-header3');
-              };
+                const htmlCode = `
+        &lt;ul class="nav-list"&gt;<br>
+            &lt;li&gt;&lt;a href="#catalog" class="nav-link"&gt;Каталог&lt;/a&gt;&lt;/li&gt;<br>
+            &lt;li&gt;&lt;a href="#about" class="nav-link"&gt;Про нас&lt;/a&gt;&lt;/li&gt;<br>
+            &lt;li&gt;&lt;a href="#contact" class="nav-link"&gt;Контакти&lt;/a&gt;&lt;/li&gt;<br>
+            &lt;li&gt;&lt;a href="business-logic.html" class="nav-link"&gt;Бізнес-логіка&lt;/a&gt;&lt;/li&gt;<br>
+        &lt;/ul&gt;
+    `;
+
+    const cssCode = `
+        .nav-link {<br>
+            &nbsp;&nbsp;color: white;<br>
+            &nbsp;&nbsp;text-decoration: none;<br>
+            &nbsp;&nbsp;font-weight: bold;<br>
+        }<br>
+        .nav-link:hover {<br>
+            &nbsp;&nbsp;text-decoration: underline;<br>
+        }
+    `;
+
+    const content = `
+        <b>Програмний HTML-код:</b><br>
+        <pre>${htmlCode}</pre><br>
+        <b>CSS-код:</b><br>
+        <pre>${cssCode}</pre><br>
+        <b>Візуалізація:</b><br>
+        <img src="images/003.jpg" alt="Візуалізація" style="width: 100%; max-width: 500px; border-radius: 5px;">
+    `;
+
+    showText(content);
+};
+document.getElementById('newButton3').onclick = function () {
+    const htmlCode = `
+        &lt;header id="main-header"&gt;<br>
+            &nbsp;&nbsp;&lt;h1&gt;Магазин морепродуктів "Рибний світ"&lt;/h1&gt;<br>
+        &lt;/header&gt;
+    `;
+
+    const cssCode = `
+        #main-header {<br>
+            &nbsp;&nbsp;background-color: #0073e6;<br>
+            &nbsp;&nbsp;color: white;<br>
+            &nbsp;&nbsp;text-align: center;<br>
+            &nbsp;&nbsp;padding: 20px;<br>
+            &nbsp;&nbsp;font-size: 2rem;<br>
+            &nbsp;&nbsp;border-bottom: 4px solid #005bb5;<br>
+        }
+    `;
+
+    const content = `
+        <b>Програмний HTML-код:</b><br>
+        <pre>${htmlCode}</pre><br>
+        <b>CSS-код:</b><br>
+        <pre>${cssCode}</pre><br>
+        <b>Візуалізація:</b><br>
+        <img src="images/004.jpg" alt="Візуалізація" style="width: 100%; max-width: 500px; border-radius: 5px;">
+    `;
+
+    showText(content);
+};
               document.getElementById('newButton4').onclick = function () {
-                showText(' <b> Універсальний селектор  : </b><br>* { box-sizing: border-box;  } <br><b> Дочірній селектор:</b><br> header > nav { margin-top: 10px;  }<br><b> Сусідній селектор:</b><br> header nav ul li + li { margin-left: 10px;  }');
-              };
+                const htmlCode = `
+        &lt;div id="contact-form" class="contact-form"&gt;<br>
+            &nbsp;&nbsp;&lt;h2&gt;Зв'яжіться з нами&lt;/h2&gt;<br>
+            &nbsp;&nbsp;&lt;form action="/submit" method="POST"&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="name"&gt;Ім'я:&lt;/label&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text" id="name" name="name" required&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="email"&gt;Електронна пошта:&lt;/label&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="email" id="email" name="email" required&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="message"&gt;Повідомлення:&lt;/label&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;textarea id="message" name="message" required&gt;&lt;/textarea&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;button type="submit"&gt;Надіслати&lt;/button&gt;<br>
+            &nbsp;&nbsp;&lt;/form&gt;<br>
+        &lt;/div&gt;
+    `;
+
+    const cssCode = `
+        input[type="text"], input[type="email"] {<br>
+            &nbsp;&nbsp;border: 2px solid #0073e6;<br>
+            &nbsp;&nbsp;padding: 5px;<br>
+        }<br>
+    `;
+
+    const content = `
+        <b>Програмний HTML-код:</b><br>
+        <pre>${htmlCode}</pre><br>
+        <b>CSS-код:</b><br>
+        <pre>${cssCode}</pre><br>
+        <b>Візуалізація:</b><br>
+        <img src="images/005.jpg" alt="Візуалізація" style="width: 100%; max-width: 500px; border-radius: 5px;">
+    `;
+
+    showText(content);
+};
             }
           };
           sidebarButtonHTMLCodeForm.onclick = function () {
