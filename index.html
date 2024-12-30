@@ -567,24 +567,61 @@ document.getElementById('newButton3').onclick = function () {
         <b>Візуалізація:</b><br>
         <img src="images/008.jpg" alt="Візуалізація" style="width: 100%; max-width: 500px; border-radius: 5px;"><br><br>
 
-        <b>За допомогою каскадних таблиць стилів виконати на свій розсуд стильове оформлення текстових елементів. Показати як застосовуються ⎯ контури:</b><br><br>
+        <b>За допомогою каскадних таблиць стилів виконати на свій розсуд стильове оформлення текстових елементів. Показати як застосовуються ⎯ CSS-властивості для таблиць, багаторівневих списків:</b><br><br>
 
         <b>Програмний HTML-код:</b><br>
-        <pre>&lt;h1&gt;Магазин морепродуктів "Рибний світ"&lt;/h1&gt;<br>
-        &lt;p&gt;Якісна заморожена риба з доставкою до вашого дому!.&lt;/p&gt;<br>
-        &lt;p&gt;Гарантія свіжості. Опт і роздріб.&lt;/p&gt;</pre><br>
+          <pre>
+&lt;div id="why-to-choose" class="additional-info"&gt;<br>
+&nbsp;&nbsp;&lt;h2&gt;Чому обирають нас&lt;/h2&gt;<br>
+&nbsp;&nbsp;&lt;ul&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Високоякісна заморожена риба<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Лосось&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Тунець&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Мойва&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Конкурентні оптові ціни<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Знижки для великих замовлень&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Спеціальні пропозиції&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Швидка та надійна доставка<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Доставка по всій країні&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Можливість самовивозу&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt;<br>
+&nbsp;&nbsp;&lt;/ul&gt;<br>
+&lt;/div&gt;
+  </pre><br>
 
-        <b>CSS-код:</b><br>
-        <pre>
-        p {<br>
-            &nbsp;&nbsp;outline: 1px dashed #0a0301; /* Пунктирний контур помаранчевого кольору */;<br>
-            &nbsp;&nbsp;outline-offset: 10px;<br>
-            &nbsp;&nbsp;padding: 10px;<br>
-            &nbsp;&nbsp;line-height: 1.8;<br>
-        }</pre><br>
+       <b>CSS-код:</b><br>
+<pre>
+.additional-info ul {<br>
+    &nbsp;&nbsp;list-style-type: square; /* Стиль маркерів верхнього рівня */<br>
+    &nbsp;&nbsp;margin: 0;<br>
+    &nbsp;&nbsp;padding-left: 20px;<br>
+}<br>
+<br>
+.additional-info ul li {<br>
+    &nbsp;&nbsp;margin-bottom: 5px;<br>
+}<br>
+<br>
+.additional-info ul li ul {<br>
+    &nbsp;&nbsp;list-style-type: circle; /* Стиль маркерів для вкладених списків */<br>
+    &nbsp;&nbsp;padding-left: 20px;<br>
+}<br>
+<br>
+.additional-info ul li ul li {<br>
+    &nbsp;&nbsp;margin-bottom: 5px;<br>
+}
+</pre><br>
+
         
          <b>Візуалізація:</b><br>
-        <img src="images/007.jpg" alt="Візуалізація" style="width: 100%; max-width: 500px; border-radius: 5px;"><br><br>
+        <img src="images/009.jpg" alt="Візуалізація" style="width: 100%; max-width: 500px; border-radius: 5px;"><br><br>
     `;
 
     showText(content);
