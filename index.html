@@ -548,93 +548,47 @@ document.getElementById('newButton3').onclick = function () {
 
 
               document.getElementById('newButton5').onclick = function () {
-                const selectors = {
-                  'Таблиці': [
-                    '.table-section',
-                    '.table-section th',
-                    '.table-section td'
-                  ],
-                  'Списки': [
-                    'header nav ul',
-                    'left-menu ul',
-                    'left-menu ul li',
-                    'additional-info ul',
-                    'additional-info ol'
-                  ],
-                  'Фон': [
-                    'body',
-                    '.hero',
-                    '.service',
-                    '.additional-info',
-                    '.table-section',
-                    '#footer'
-                  ]
-                };
+                const content = `
+        <b>За допомогою каскадних таблиць стилів виконати на свій розсуд стильове оформлення текстових елементів. Показати як застосовуються ⎯ фон:</b><br><br>
+        
+        <b>Програмний HTML-код:</b><br>
+        <pre>-<br>
+        
+        <b>CSS-код:</b><br>
+<pre>/* Стилі для сторінки business-logic.html */<br>
+.business-logic-page {<br>
+    &nbsp;&nbsp;background-image: url('images/003.jpg');<br>
+    &nbsp;&nbsp;background-size: cover;<br>
+    &nbsp;&nbsp;background-position: center;<br>
+    &nbsp;&nbsp;background-repeat: no-repeat;<br>
+    &nbsp;&nbsp;min-height: 100vh;<br>
+}</pre><br>
+        
+        <b>Візуалізація:</b><br>
+        <img src="images/008.jpg" alt="Візуалізація" style="width: 100%; max-width: 500px; border-radius: 5px;"><br><br>
 
-                let result = '<b>Селектори:</b><br>';
-                for (const category in selectors) {
-                  result += `<b>${category}:</b><br>${selectors[category].join('<br>')}<br><br>`;
-                }
+        <b>За допомогою каскадних таблиць стилів виконати на свій розсуд стильове оформлення текстових елементів. Показати як застосовуються ⎯ контури:</b><br><br>
 
-                result += '<b>CSS-код:</b><br><pre><code>' +
-                  `/* Стили для таблиц */
-.table-section table {
-  width: 100%;
-  border-collapse: collapse;
-}
-.table-section th, .table-section td {
-  padding: 8px;
-  text-align: left;
-}
-.table-section th {
-  background: rgba(0, 0, 0, 0.6);
-}
-.table-section tr:nth-child(even) {
-  background: rgba(0, 0, 0, 0.6);
-}
+        <b>Програмний HTML-код:</b><br>
+        <pre>&lt;h1&gt;Магазин морепродуктів "Рибний світ"&lt;/h1&gt;<br>
+        &lt;p&gt;Якісна заморожена риба з доставкою до вашого дому!.&lt;/p&gt;<br>
+        &lt;p&gt;Гарантія свіжості. Опт і роздріб.&lt;/p&gt;</pre><br>
 
-/* Стили для списков */
-header nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: space-around;
-}
-left-menu ul {
-  list-style: none;
-  padding: 0;
-}
-left-menu ul li {
-  margin-bottom: 20px;
-}
-additional-info ul,
-additional-info ol {
-  padding-left: 20px;
-}
+        <b>CSS-код:</b><br>
+        <pre>
+        p {<br>
+            &nbsp;&nbsp;outline: 1px dashed #0a0301; /* Пунктирний контур помаранчевого кольору */;<br>
+            &nbsp;&nbsp;outline-offset: 10px;<br>
+            &nbsp;&nbsp;padding: 10px;<br>
+            &nbsp;&nbsp;line-height: 1.8;<br>
+        }</pre><br>
+        
+         <b>Візуалізація:</b><br>
+        <img src="images/007.jpg" alt="Візуалізація" style="width: 100%; max-width: 500px; border-radius: 5px;"><br><br>
+    `;
 
-/* Стили для фона */
-body {
-  background: url('images/robot.jpg') no-repeat center center fixed;
-  background-size: cover;
-  font-family: 'Roboto', sans-serif;
-}
-.hero {
-  background: rgba(0, 0, 0, 0.6);
-}
-.service {
-  background: rgba(0, 0, 0, 0.5);
-}
-.additional-info,
-.table-section {
-  background: rgba(0, 0, 0, 0.6);
-}
-#footer {
-  background: rgba(0, 0, 0, 0.6);
-}` + '</code></pre>';
-
-                showText(result);
-              };
+    showText(content);
+};
 
 
 
